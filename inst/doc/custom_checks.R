@@ -1,10 +1,10 @@
-## ----setup, include = FALSE----------------------------------------------
+## ----setup, include = FALSE---------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 library(goodpractice)
 
 # make a simple version of the T/F check
@@ -17,13 +17,13 @@ check_simple_tf <- make_check(
   }
 )
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 # get path to example package
 pkg_path <- system.file("bad1", package = "goodpractice")
 gp(pkg_path, checks = c("simple_tf", "truefalse_not_tf"),
    extra_checks = list(simple_tf = check_simple_tf))
 
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 # prep: process DESCRIPTION file
 desc_fun <- function(path, quiet) {
   desc::description$new(path)

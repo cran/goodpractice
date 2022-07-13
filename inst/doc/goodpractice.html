@@ -1,65 +1,329 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <meta name="author" content="Hannah Frick" />
 
-<meta name="date" content="2018-05-01" />
+<meta name="date" content="2022-07-13" />
 
 <title>goodpractice</title>
 
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
-
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
 
 
-<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -69,139 +333,240 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <h1 class="title toc-ignore">goodpractice</h1>
-<h4 class="author"><em>Hannah Frick</em></h4>
-<h4 class="date"><em>2018-05-01</em></h4>
+<h4 class="author">Hannah Frick</h4>
+<h4 class="date">2022-07-13</h4>
 
 
 
 <div id="whats-it-for" class="section level2">
 <h2>What’s it for?</h2>
-<p>Building an R package is a great way of encapsulating code, documentation and data in a single testable and easily distributable unit.</p>
-<p>For a package to be distributed via CRAN, it needs to pass a set of checks implemented in <code>R CMD check</code>, such as: Is there minimal documentation, e.g., are all arguments of exported functions documented? Are all dependencies declared?</p>
-<p>These checks are helpful in developing a solid R package but they don’t check for several other good practices. For example, a package does not need to contain any tests but is it good practice to include such. Following a coding standard helps readability. Avoiding overly complex functions reduces the risk of bugs. Incuding an URL for bug reports lets people more easily report bugs if they find any.</p>
-<p>Tools for automatically checking several of these aspects already exist and the <strong>goodpractice</strong> package bundles the checks from <a href="https://cran.r-project.org/package=rcmdcheck"><strong>rcmdcheck</strong></a> with code coverage through the <a href="https://cran.r-project.org/package=covr"><strong>covr</strong></a> package, source code linting via the <a href="https://cran.r-project.org/package=lintr"><strong>lintr</strong></a> package and cyclompatic complexity via the <a href="https://cran.r-project.org/package=cyclocomp"><strong>cyclocomp</strong></a> package and augments it with some further checks on good practice for R package development such as avoiding <code>T</code> and <code>F</code> in favour of <code>TRUE</code> and <code>FALSE</code>. It provides advice on which practices to follow and which to avoid.</p>
-<p>You can use <strong>goodpractice</strong> checks as a reminder for you and your collegues - and if you have custom checks to run, you can make <strong>goodpractice</strong> run those as well! Please see the vignette <a href="https://mangothecat.github.io/goodpractice/articles/custom_checks.html">Custom Checks</a> for more details.</p>
+<p>Building an R package is a great way of encapsulating code,
+documentation and data in a single testable and easily distributable
+unit.</p>
+<p>For a package to be distributed via CRAN, it needs to pass a set of
+checks implemented in <code>R CMD check</code>, such as: Is there
+minimal documentation, e.g., are all arguments of exported functions
+documented? Are all dependencies declared?</p>
+<p>These checks are helpful in developing a solid R package but they
+don’t check for several other good practices. For example, a package
+does not need to contain any tests but is it good practice to include
+such. Following a coding standard helps readability. Avoiding overly
+complex functions reduces the risk of bugs. Including an URL for bug
+reports lets people more easily report bugs if they find any.</p>
+<p>Tools for automatically checking several of these aspects already
+exist and the <strong>goodpractice</strong> package bundles the checks
+from <a href="https://cran.r-project.org/package=rcmdcheck"><strong>rcmdcheck</strong></a>
+with code coverage through the <a href="https://cran.r-project.org/package=covr"><strong>covr</strong></a>
+package, source code linting via the <a href="https://cran.r-project.org/package=lintr"><strong>lintr</strong></a>
+package and cyclomatic complexity via the <a href="https://cran.r-project.org/package=cyclocomp"><strong>cyclocomp</strong></a>
+package and augments it with some further checks on good practice for R
+package development such as avoiding <code>T</code> and <code>F</code>
+in favour of <code>TRUE</code> and <code>FALSE</code>. It provides
+advice on which practices to follow and which to avoid.</p>
+<p>You can use <strong>goodpractice</strong> checks as a reminder for
+you and your colleagues - and if you have custom checks to run, you can
+make <strong>goodpractice</strong> run those as well! Please see the
+vignette “Custom Checks” for more details.</p>
 </div>
 <div id="good-practice-out-of-the-box" class="section level2">
 <h2>Good practice out of the box</h2>
 <div id="main-function" class="section level3">
 <h3>Main function</h3>
-<p>The main fuction is <code>goodpractice()</code> and has an alias <code>gp()</code> which takes the path to the source code of a package as its first argument. The <strong>goodpractice</strong> package contains the source for a simple package which violates some good practices. We’ll use this for the examples.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(goodpractice)
-
-<span class="co"># get path to example package</span>
-pkg_path &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&quot;bad1&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;goodpractice&quot;</span>)
-
-<span class="co"># run gp() on it</span>
-g &lt;-<span class="st"> </span><span class="kw">gp</span>(pkg_path)
-<span class="co">#&gt; Preparing: covr</span>
-<span class="co">#&gt; Warning in MYPREPS[[prep]](state, quiet = quiet): Prep step for test</span>
-<span class="co">#&gt; coverage failed.</span>
-<span class="co">#&gt; Preparing: cyclocomp</span>
-<span class="co">#&gt; Skipping 1 packages not available: goodpractice</span>
-<span class="co">#&gt; Preparing: description</span>
-<span class="co">#&gt; Preparing: lintr</span>
-<span class="co">#&gt; Preparing: namespace</span>
-<span class="co">#&gt; Preparing: rcmdcheck</span>
-
-<span class="co"># show the result</span>
-g
-<span class="co">#&gt; ── GP badpackage ──────────────────────────────────────────────────────────</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; It is good practice to</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;   ✖ not use &quot;Depends&quot; in DESCRIPTION, as it can cause name</span>
-<span class="co">#&gt;     clashes, and poor interaction with other packages. Use</span>
-<span class="co">#&gt;     &quot;Imports&quot; instead.</span>
-<span class="co">#&gt;   ✖ omit &quot;Date&quot; in DESCRIPTION. It is not required and it gets</span>
-<span class="co">#&gt;     invalid quite often. A build date will be added to the package</span>
-<span class="co">#&gt;     when you perform `R CMD build` on it.</span>
-<span class="co">#&gt;   ✖ add a &quot;URL&quot; field to DESCRIPTION. It helps users find</span>
-<span class="co">#&gt;     information about your package online. If your package does</span>
-<span class="co">#&gt;     not have a homepage, add an URL to GitHub, or the CRAN package</span>
-<span class="co">#&gt;     package page.</span>
-<span class="co">#&gt;   ✖ add a &quot;BugReports&quot; field to DESCRIPTION, and point it to a bug</span>
-<span class="co">#&gt;     tracker. Many online code hosting services provide bug</span>
-<span class="co">#&gt;     trackers for free, https://github.com, https://gitlab.com,</span>
-<span class="co">#&gt;     etc.</span>
-<span class="co">#&gt;   ✖ omit trailing semicolons from code lines. They are not needed</span>
-<span class="co">#&gt;     and most R coding standards forbid them</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     R/semicolons.R:4:30</span>
-<span class="co">#&gt;     R/semicolons.R:5:29</span>
-<span class="co">#&gt;     R/semicolons.R:9:38</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;   ✖ not import packages as a whole, as this can cause name clashes</span>
-<span class="co">#&gt;     between the imported packages. Instead, import only the</span>
-<span class="co">#&gt;     specific functions you need.</span>
-<span class="co">#&gt;   ✖ fix this R CMD check ERROR: VignetteBuilder package not</span>
-<span class="co">#&gt;     declared: ‘knitr’ See section ‘The DESCRIPTION file’ in the</span>
-<span class="co">#&gt;     ‘Writing R Extensions’ manual.</span>
-<span class="co">#&gt;   ✖ avoid 'T' and 'F', as they are just variables which are set to</span>
-<span class="co">#&gt;     the logicals 'TRUE' and 'FALSE' by default, but are not</span>
-<span class="co">#&gt;     reserved words and hence can be overwritten by the user.</span>
-<span class="co">#&gt;     Hence, one should always use 'TRUE' and 'FALSE' for the</span>
-<span class="co">#&gt;     logicals.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     R/tf.R:NA:NA</span>
-<span class="co">#&gt;     R/tf.R:NA:NA</span>
-<span class="co">#&gt;     R/tf.R:NA:NA</span>
-<span class="co">#&gt;     R/tf.R:NA:NA</span>
-<span class="co">#&gt;     R/tf.R:NA:NA</span>
-<span class="co">#&gt;     ... and 4 more lines</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ───────────────────────────────────────────────────────────────────────────</span></code></pre></div>
-<p>So with this package, we’ve done a few things in the DESCRIPTION file for which there are reasons not to do them, have unnecessary trailing semicolons in the code and used <code>T</code> and <code>F</code> for <code>TRUE</code> and <code>FALSE</code>. The output of <code>gp()</code> tells you what you did that isn’t considered good practice and if it’s in the R code, it points you the location of your faux-pas. In general, the messages are supposed to not only point out to you <em>what</em> you might want to avoid but also <em>why</em>.</p>
-<p>The above example tries to run all 230 checks available, to see the full list use <code>all_checks()</code>. If you only want to run a subset of the checks, e.g., the one on the URL field in the DESCRIPTION, you can specify the checks by name:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># what is the name of the check?</span>
-<span class="kw">grep</span>(<span class="st">&quot;url&quot;</span>, <span class="kw">all_checks</span>(), <span class="dt">value =</span> <span class="ot">TRUE</span>)
-<span class="co">#&gt; [1] &quot;description_url&quot;</span>
-
-<span class="co"># run only this check</span>
-g_url &lt;-<span class="st"> </span><span class="kw">gp</span>(pkg_path, <span class="dt">checks =</span> <span class="st">&quot;description_url&quot;</span>)
-<span class="co">#&gt; Preparing: description</span>
-
-g_url
-<span class="co">#&gt; ── GP badpackage ──────────────────────────────────────────────────────────</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; It is good practice to</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;   ✖ add a &quot;URL&quot; field to DESCRIPTION. It helps users find</span>
-<span class="co">#&gt;     information about your package online. If your package does</span>
-<span class="co">#&gt;     not have a homepage, add an URL to GitHub, or the CRAN package</span>
-<span class="co">#&gt;     package page.</span>
-<span class="co">#&gt; ───────────────────────────────────────────────────────────────────────────</span></code></pre></div>
+<p>The main function is <code>goodpractice()</code> and has an alias
+<code>gp()</code> which takes the path to the source code of a package
+as its first argument. The <strong>goodpractice</strong> package
+contains the source for a simple package which violates some good
+practices. We’ll use this for the examples.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(goodpractice)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># get path to example package</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pkg_path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;bad1&quot;</span>, <span class="at">package =</span> <span class="st">&quot;goodpractice&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># run gp() on it</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">gp</span>(pkg_path)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Preparing: covr</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in utils::install.packages(repos = NULL, lib = tmp_lib, pkg$path, :</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; installation of package &#39;C:/Users/karina.marks/AppData/Local/Temp/RtmpGM4Xan/</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Rinst46cc19011bd7/goodpractice/bad1&#39; had non-zero exit status</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in file(con, &quot;r&quot;): cannot open file &#39;C:/Users/karina.marks/AppData/</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Local/Temp/Rtmp0CKW3n/R_LIBS2e1c4f372f2c/badpackage/R/badpackage&#39;: No such file</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; or directory</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in MYPREPS[[prep]](state, quiet = quiet): Prep step for test coverage</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; failed.</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Preparing: cyclocomp</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Skipping 1 packages not available: goodpractice</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   </span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>   checking <span class="cf">for</span> file <span class="st">&#39;C:\Users\karina.marks\AppData\Local\Temp\Rtmp0CKW3n</span><span class="sc">\r</span><span class="st">emotes2e1c5706006</span><span class="sc">\b</span><span class="st">adpackage/DESCRIPTION&#39;</span> ...</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>   checking <span class="cf">for</span> file <span class="st">&#39;C:\Users\karina.marks\AppData\Local\Temp\Rtmp0CKW3n</span><span class="sc">\r</span><span class="st">emotes2e1c5706006</span><span class="sc">\b</span><span class="st">adpackage/DESCRIPTION&#39;</span> ... </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>✔  checking <span class="cf">for</span> file <span class="st">&#39;C:\Users\karina.marks\AppData\Local\Temp\Rtmp0CKW3n</span><span class="sc">\r</span><span class="st">emotes2e1c5706006</span><span class="sc">\b</span><span class="st">adpackage/DESCRIPTION&#39;</span> (418ms)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>─  preparing <span class="st">&#39;badpackage&#39;</span><span class="sc">:</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    checking DESCRIPTION meta-information ...</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>   checking DESCRIPTION meta<span class="sc">-</span>information ... </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>✔  checking DESCRIPTION meta<span class="sc">-</span>information</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>   checking vignette meta<span class="sc">-</span>information ...</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>✔  checking vignette meta<span class="sc">-</span>information</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>─  checking <span class="cf">for</span> LF line<span class="sc">-</span>endings <span class="cf">in</span> source and make files and shell scripts</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>─  checking <span class="cf">for</span> empty or unneeded directories</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>─  building <span class="st">&#39;badpackage_1.0.0.tar.gz&#39;</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in utils::install.packages(pkgs = pkgs, lib = lib, repos = myrepos, :</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; installation of package &#39;C:/Users/KARINA~1.MAR/AppData/Local/Temp/Rtmp0CKW3n/</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; file2e1c25581df2/badpackage_1.0.0.tar.gz&#39; had non-zero exit status</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in utils::install.packages(pkgs = pkgs, lib = lib, repos = myrepos, :</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; installation of package &#39;C:/Users/KARINA~1.MAR/AppData/Local/Temp/Rtmp0CKW3n/</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; file2e1c25581df2/badpackage_1.0.0.tar.gz&#39; had non-zero exit status</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in MYPREPS[[prep]](state, quiet = quiet): Prep step for cyclomatic</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; complexity failed.</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Preparing: description</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Preparing: lintr</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Preparing: namespace</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Preparing: rcmdcheck</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; pdflatex not found! Not building PDF manual.</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="co"># show the result</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>g</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── GP badpackage ───────────────────────────────────────────────────────────────</span></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; It is good practice to</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ✖ not use &quot;Depends&quot; in DESCRIPTION, as it can cause name clashes, and</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     poor interaction with other packages. Use &quot;Imports&quot; instead.</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ✖ omit &quot;Date&quot; in DESCRIPTION. It is not required and it gets invalid</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     quite often. A build date will be added to the package when you</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     perform `R CMD build` on it.</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ✖ add a &quot;URL&quot; field to DESCRIPTION. It helps users find information</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     about your package online. If your package does not have a</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     homepage, add an URL to GitHub, or the CRAN package package page.</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ✖ add a &quot;BugReports&quot; field to DESCRIPTION, and point it to a bug</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     tracker. Many online code hosting services provide bug trackers for</span></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     free, https://github.com, https://gitlab.com, etc.</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ✖ omit trailing semicolons from code lines. They are not needed and</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     most R coding standards forbid them</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     R\semicolons.R:4:30</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     R\semicolons.R:5:29</span></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     R\semicolons.R:9:38</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ✖ not import packages as a whole, as this can cause name clashes</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     between the imported packages. Instead, import only the specific</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     functions you need.</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ✖ fix this R CMD check ERROR: VignetteBuilder package not declared:</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     &#39;knitr&#39; See section &#39;The DESCRIPTION file&#39; in the &#39;Writing R</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     Extensions&#39; manual.</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ✖ avoid &#39;T&#39; and &#39;F&#39;, as they are just variables which are set to the</span></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     logicals &#39;TRUE&#39; and &#39;FALSE&#39; by default, but are not reserved words</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     and hence can be overwritten by the user.  Hence, one should always</span></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     use &#39;TRUE&#39; and &#39;FALSE&#39; for the logicals.</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     ... and 4 more lines</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
+<p>So with this package, we’ve done a few things in the DESCRIPTION file
+for which there are reasons not to do them, have unnecessary trailing
+semicolons in the code and used <code>T</code> and <code>F</code> for
+<code>TRUE</code> and <code>FALSE</code>. The output of
+<code>gp()</code> tells you what you did that isn’t considered good
+practice and if it’s in the R code, it points you the location of your
+faux-pas. In general, the messages are supposed to not only point out to
+you <em>what</em> you might want to avoid but also <em>why</em>.</p>
+<p>The above example tries to run all 230 checks available, to see the
+full list use <code>all_checks()</code>. If you only want to run a
+subset of the checks, e.g., the one on the URL field in the DESCRIPTION,
+you can specify the checks by name:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what is the name of the check?</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;url&quot;</span>, <span class="fu">all_checks</span>(), <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;description_url&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># run only this check</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>g_url <span class="ot">&lt;-</span> <span class="fu">gp</span>(pkg_path, <span class="at">checks =</span> <span class="st">&quot;description_url&quot;</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Preparing: description</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>g_url</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── GP badpackage ───────────────────────────────────────────────────────────────</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; It is good practice to</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   ✖ add a &quot;URL&quot; field to DESCRIPTION. It helps users find information</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     about your package online. If your package does not have a</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     homepage, add an URL to GitHub, or the CRAN package package page.</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
 </div>
 <div id="doing-more-than-just-printing" class="section level3">
 <h3>Doing more than just printing</h3>
-<p>Apart from printing a <code>goodPractice</code> object as returned by <code>gp()</code> to access the advice, you can also access which checks were carried out and which of those failed:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># which checks were carried out?</span>
-<span class="kw">checks</span>(g_url)
-<span class="co">#&gt; [1] &quot;description_url&quot;</span>
-
-<span class="co"># which checks failed?</span>
-<span class="kw">failed_checks</span>(g)
-<span class="co">#&gt; [1] &quot;no_description_depends&quot;                </span>
-<span class="co">#&gt; [2] &quot;no_description_date&quot;                   </span>
-<span class="co">#&gt; [3] &quot;description_url&quot;                       </span>
-<span class="co">#&gt; [4] &quot;description_bugreports&quot;                </span>
-<span class="co">#&gt; [5] &quot;lintr_trailing_semicolon_linter&quot;       </span>
-<span class="co">#&gt; [6] &quot;no_import_package_as_a_whole&quot;          </span>
-<span class="co">#&gt; [7] &quot;rcmdcheck_package_dependencies_present&quot;</span>
-<span class="co">#&gt; [8] &quot;truefalse_not_tf&quot;</span></code></pre></div>
-<p>To access all the checks carried out with their results in a data frame, use <code>results()</code> on your <code>goodPractice</code> object.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># show the first 5 checks carried out and their results</span>
-<span class="kw">results</span>(g)[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,]
-<span class="co">#&gt;                    check result</span>
-<span class="co">#&gt; 1                   covr     NA</span>
-<span class="co">#&gt; 2              cyclocomp   TRUE</span>
-<span class="co">#&gt; 3 no_description_depends  FALSE</span>
-<span class="co">#&gt; 4    no_description_date  FALSE</span>
-<span class="co">#&gt; 5        description_url  FALSE</span></code></pre></div>
-<p>Note that the code coverage could not be calculated. The corresponding check does not show up in the failed checks (because it was not carried out) and the result is <code>NA</code>. It is also possible to export the results to a JSON file with <code>export_json()</code>.</p>
+<p>Apart from printing a <code>goodPractice</code> object as returned by
+<code>gp()</code> to access the advice, you can also access which checks
+were carried out and which of those failed:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># which checks were carried out?</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">checks</span>(g_url)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;description_url&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># which checks failed?</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">failed_checks</span>(g)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] &quot;no_description_depends&quot;                </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [2] &quot;no_description_date&quot;                   </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [3] &quot;description_url&quot;                       </span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [4] &quot;description_bugreports&quot;                </span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [5] &quot;lintr_trailing_semicolon_linter&quot;       </span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [6] &quot;no_import_package_as_a_whole&quot;          </span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [7] &quot;rcmdcheck_package_dependencies_present&quot;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [8] &quot;truefalse_not_tf&quot;</span></span></code></pre></div>
+<p>To access all the checks carried out with their results in a data
+frame, use <code>results()</code> on your <code>goodPractice</code>
+object.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show the first 5 checks carried out and their results</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">results</span>(g)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                    check result</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1                   covr     NA</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2              cyclocomp     NA</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 no_description_depends  FALSE</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4    no_description_date  FALSE</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5        description_url  FALSE</span></span></code></pre></div>
+<p>Note that the code coverage could not be calculated. The
+corresponding check does not show up in the failed checks (because it
+was not carried out) and the result is <code>NA</code>. It is also
+possible to export the results to a JSON file with
+<code>export_json()</code>.</p>
 </div>
 </div>
 
+
+
+<!-- code folding -->
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
