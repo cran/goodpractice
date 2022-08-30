@@ -1,6 +1,6 @@
 Package: goodpractice
 Title: Advice on R Package Building
-Version: 1.0.3
+Version: 1.0.4
 Authors@R: 
     c(person(given = "Ascent Digital Services UK Limited",
              role = "cph",
@@ -62,7 +62,7 @@ Collate: 'api.R' 'customization.R' 'lists.R' 'chk_covr.R'
         'prep_namespace.R' 'prep_rcmdcheck.R' 'print.R'
         'rstudio_markers.R' 'utils.R'
 NeedsCompilation: no
-Packaged: 2022-07-13 08:08:50 UTC; karina.marks
+Packaged: 2022-08-30 16:06:25 UTC; ana.simmons
 Author: Ascent Digital Services UK Limited [cph] (MangoTheCat),
   Karina Marks [aut, cre] (KarinaMarks),
   Daniel de Bortoli [aut] (ddbortoli),
@@ -74,4 +74,4 @@ Author: Ascent Digital Services UK Limited [cph] (MangoTheCat),
   Fabian Scheipl [ctb] (fabian-s)
 Maintainer: Karina Marks <karina.marks@ascent.io>
 Repository: CRAN
-Date/Publication: 2022-07-13 13:20:08 UTC
+Date/Publication: 2022-08-30 19:00:02 UTC

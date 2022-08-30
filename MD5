@@ -1,7 +1,7 @@
-8b2b3f0044c40b30c01554eca452e074 *DESCRIPTION
+631c71f86bdeb9fda0ef8181db8d1343 *DESCRIPTION
 e5afb2582763919ce9ebd1ebec72d94b *LICENSE
 a68982daa9d2ee523a99bcc8ed1effa1 *NAMESPACE
-e85f17d54c930d27d04ac2a0cdbf63fe *NEWS.md
+bfd153e8058c0bfbbf43ffc4b85d8680 *NEWS.md
 2187985fd0679f214a2208ba7a3ab0de *R/api.R
 254e58dc7a030396a4ccc4dd9c6c887c *R/chk_covr.R
 ca6c2d68dce3f1b4951fdef476e07801 *R/chk_cyclocomp.R
@@ -25,8 +25,8 @@ f29a669b77de4c2eb9b69b884b8c0900 *R/prep_namespace.R
 8b093248eb5708edd206e82f96ac18e3 *R/print.R
 cb4b5e781d0b28d774c0f56fe448d857 *R/rstudio_markers.R
 7315972069e1745b8c4f334185080869 *R/utils.R
-97fe5102dfb6addb469a3cf2b760933b *README.md
-c9a4702ff56d92cf2d5a186351a290f2 *build/vignette.rds
+b3f94fe4f1b5bd22c87ac1cd6f77f036 *README.md
+417eb22aab091914dc3860469cc5df54 *build/vignette.rds
 ce46015a07651c1e8f56dcae12d2de00 *inst/bad1/DESCRIPTION
 063e23ce36d35b753bdf82f31ee66142 *inst/bad1/NAMESPACE
 6e164e1476a22141ba1075ad22875972 *inst/bad1/R/package.R
@@ -38,10 +38,10 @@ c04d351502f10d3f75e5ec24fb42749c *inst/bad1/R/tf2.R
 2d01d57b691a2f759d663c93794ba37a *inst/bad1/vignettes/library-calls-ok-here.Rmd
 b57c402fae3b34d0cfeeb0115739e524 *inst/doc/custom_checks.R
 a295bb18ba43a523ebb9a365c4bea7eb *inst/doc/custom_checks.Rmd
-8fb5bd35042f228871049afda3d6196b *inst/doc/custom_checks.html
+57932c503da36df0bcc5b89b8db13430 *inst/doc/custom_checks.html
 8dbfd47d7ba377247efc8d0f6122e71d *inst/doc/goodpractice.R
 fe73eea93ac8636cb6a406df7261b19b *inst/doc/goodpractice.Rmd
-430b0ee3004337396ec0f749b8faf516 *inst/doc/goodpractice.html
+23afe7e2a1772ce8c6bc2423fb150cae *inst/doc/goodpractice.html
 0bfc58bed9a30173e6b50919783b9554 *man/all_checks.Rd
 f89e9cf71ac67c0a1c1097da1c906bcf *man/checks.Rd
 68dd4a6f2f4108c2b4c8476054fff0af *man/customization.Rd
@@ -81,7 +81,7 @@ d7cf00b5758acf8905afe907061f0e52 *tests/testthat/test-description.R
 0eb8066ee09b08b63130e529b37f7893 *tests/testthat/test-integrity.R
 b76cdf282fc73e8e37d421c2727d5a8f *tests/testthat/test-lintr.R
 744cfbfcbf4a804c66c42f4f7aaa29b6 *tests/testthat/test-namespace.R
-bdf245687add592ae1cf7bcd466aa1c2 *tests/testthat/test-print.R
+9b534caf2ca8c365ca8b7e2d495317a4 *tests/testthat/test-print.R
 c3b2b5b88f9bcbcda0ef1e3065ad5182 *tests/testthat/test-rcmdcheck.R
 ab2ca01d39372c03a763a74b530406de *tests/testthat/test-tf.R
 43cc34a02bac61b7c02131ac90df390e *tests/testthat/test.R
