@@ -1,4 +1,9 @@
-# goodpractice 1.0.4
+# goodpractice 1.0.4-1
+
+* CRAN fixes - skipping failing test and adding \alias{goodpractice} to package Rd
+* Adding pkgdown site to DESCRIPTION (#160, @olivroy)
+
+# goodpractice 1.0.3
 
 Additions:
 
