@@ -10,9 +10,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<meta name="author" content="Hannah Frick" />
 
-<meta name="date" content="2024-06-03" />
 
 <title>goodpractice</title>
 
@@ -29,6 +27,230 @@ document.addEventListener('DOMContentLoaded', function(e) {
   }
 });
 </script>
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<style type="text/css">
+.lightable-minimal {
+border-collapse: separate;
+border-spacing: 16px 1px;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-minimal td {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal th {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal thead tr:last-child th {
+border-bottom: 2px solid #00000050;
+empty-cells: hide;
+}
+.lightable-minimal tbody tr:first-child td {
+padding-top: 0.5em;
+}
+.lightable-minimal.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic {
+border-top: 0.16em solid #111111;
+border-bottom: 0.16em solid #111111;
+width: 100%;
+margin-bottom: 10px;
+margin: 10px 5px;
+}
+.lightable-classic tfoot tr td {
+border: 0;
+}
+.lightable-classic tfoot tr:first-child td {
+border-top: 0.14em solid #111111;
+}
+.lightable-classic caption {
+color: #222222;
+}
+.lightable-classic td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic thead tr:last-child th {
+border-bottom: 0.10em solid #111111;
+}
+.lightable-classic.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic-2 {
+border-top: 3px double #111111;
+border-bottom: 3px double #111111;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-classic-2 tfoot tr td {
+border: 0;
+}
+.lightable-classic-2 tfoot tr:first-child td {
+border-top: 3px double #111111;
+}
+.lightable-classic-2 caption {
+color: #222222;
+}
+.lightable-classic-2 td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic-2 th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic-2 tbody tr:last-child td {
+border-bottom: 3px double #111111;
+}
+.lightable-classic-2 thead tr:last-child th {
+border-bottom: 1px solid #111111;
+}
+.lightable-classic-2.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #EEE;
+border-collapse: collapse;
+margin-bottom: 10px;
+}
+.lightable-material tfoot tr td {
+border: 0;
+}
+.lightable-material tfoot tr:first-child td {
+border-top: 1px solid #EEE;
+}
+.lightable-material th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+}
+.lightable-material td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+border-top: 1px solid #eeeeee;
+}
+.lightable-material.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #ddd;
+}
+.lightable-material-dark {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #FFFFFF12;
+border-collapse: collapse;
+margin-bottom: 10px;
+background-color: #363640;
+}
+.lightable-material-dark tfoot tr td {
+border: 0;
+}
+.lightable-material-dark tfoot tr:first-child td {
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF60;
+}
+.lightable-material-dark td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF;
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark.lightable-hover tbody tr:hover {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material-dark.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #FFFFFF12;
+}
+.lightable-paper {
+width: 100%;
+margin-bottom: 10px;
+color: #444;
+}
+.lightable-paper tfoot tr td {
+border: 0;
+}
+.lightable-paper tfoot tr:first-child td {
+border-top: 1px solid #00000020;
+}
+.lightable-paper thead tr:last-child th {
+color: #666;
+vertical-align: bottom;
+border-bottom: 1px solid #00000020;
+line-height: 1.15em;
+padding: 10px 5px;
+}
+.lightable-paper td {
+vertical-align: middle;
+border-bottom: 1px solid #00000010;
+line-height: 1.15em;
+padding: 7px 5px;
+}
+.lightable-paper.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-paper.lightable-striped tbody tr:nth-child(even) {
+background-color: #00000008;
+}
+.lightable-paper.lightable-striped tbody td {
+border: 0;
+}
+</style>
 
 <style type="text/css">
 code{white-space: pre-wrap;}
@@ -50,8 +272,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -62,7 +285,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -339,183 +562,553 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 <h1 class="title toc-ignore">goodpractice</h1>
-<h4 class="author">Hannah Frick</h4>
-<h4 class="date">2024-06-03</h4>
 
 
 
-<div id="whats-it-for" class="section level2">
-<h2>What’s it for?</h2>
-<p>Building an R package is a great way of encapsulating code,
-documentation and data in a single testable and easily distributable
-unit.</p>
-<p>For a package to be distributed via CRAN, it needs to pass a set of
-checks implemented in <code>R CMD check</code>, such as: Is there
-minimal documentation, e.g., are all arguments of exported functions
-documented? Are all dependencies declared?</p>
-<p>These checks are helpful in developing a solid R package but they
-don’t check for several other good practices. For example, a package
-does not need to contain any tests but is it good practice to include
-such. Following a coding standard helps readability. Avoiding overly
-complex functions reduces the risk of bugs. Including an URL for bug
-reports lets people more easily report bugs if they find any.</p>
-<p>Tools for automatically checking several of these aspects already
-exist and the <strong>goodpractice</strong> package bundles the checks
-from <a href="https://cran.r-project.org/package=rcmdcheck"><strong>rcmdcheck</strong></a>
-with code coverage through the <a href="https://cran.r-project.org/package=covr"><strong>covr</strong></a>
-package, source code linting via the <a href="https://cran.r-project.org/package=lintr"><strong>lintr</strong></a>
-package and cyclomatic complexity via the <a href="https://cran.r-project.org/package=cyclocomp"><strong>cyclocomp</strong></a>
-package and augments it with some further checks on good practice for R
-package development such as avoiding <code>T</code> and <code>F</code>
-in favour of <code>TRUE</code> and <code>FALSE</code>. It provides
-advice on which practices to follow and which to avoid.</p>
-<p>You can use <strong>goodpractice</strong> checks as a reminder for
-you and your colleagues - and if you have custom checks to run, you can
-make <strong>goodpractice</strong> run those as well! Please see the
-vignette “Custom Checks” for more details.</p>
+<div id="why-goodpractice" class="section level2">
+<h2>Why goodpractice?</h2>
+<p>A robust R package needs more than passing <code>R CMD check</code>.
+Tests give you confidence that things work. A consistent coding style
+makes your code readable to others. Keeping functions short and focused
+reduces the risk of bugs. Good metadata — a BugReports URL, properly
+declared dependencies, documented return values — helps users and
+reviewers understand what they’re working with.</p>
+<p>goodpractice checks all of this in one pass. It bundles
+<code>R CMD check</code> with code coverage (<a href="https://cran.r-project.org/package=covr">covr</a>), source linting
+(<a href="https://cran.r-project.org/package=lintr">lintr</a>),
+cyclomatic complexity (<a href="https://cran.r-project.org/package=cyclocomp">cyclocomp</a>), and
+its own checks for documentation, package structure, and common
+pitfalls. Each message tells you <em>what</em> to fix, <em>why</em> it
+matters, and <em>where</em> in your code to look. You can also add <a href="custom_checks.html">custom checks</a> for your team’s own
+conventions.</p>
 </div>
-<div id="good-practice-out-of-the-box" class="section level2">
-<h2>Good practice out of the box</h2>
-<div id="main-function" class="section level3">
-<h3>Main function</h3>
-<p>The main function is <code>goodpractice()</code> and has an alias
-<code>gp()</code> which takes the path to the source code of a package
-as its first argument. The <strong>goodpractice</strong> package
-contains the source for a simple package which violates some good
-practices. We’ll use this for the examples.</p>
+<div id="quick-start" class="section level2">
+<h2>Quick start</h2>
+<p>The main function is <code>gp()</code> (short for
+<code>goodpractice()</code>). Point it at a package directory and it
+runs the default set of checks:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(goodpractice)</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co"># get path to example package</span></span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>pkg_path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;bad1&quot;</span>, <span class="at">package =</span> <span class="st">&quot;goodpractice&quot;</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co"># run gp() on it</span></span>
-<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">gp</span>(pkg_path)</span>
-<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt; Preparing: covr</span></span>
-<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt; Warning in MYPREPS[[prep]](state, quiet = quiet): Prep step for test coverage</span></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt; failed.</span></span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt; Preparing: cyclocomp</span></span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co">#&gt; ── R CMD build ─────────────────────────────────────────────────────────────────</span></span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="co">#&gt; * checking for file ‘/tmp/RtmpiNjOgY/remotes55a95662a77f/badpackage/DESCRIPTION’ ... OK</span></span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="co">#&gt; * preparing ‘badpackage’:</span></span>
-<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="co">#&gt; * checking DESCRIPTION meta-information ... OK</span></span>
-<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="co">#&gt; * checking vignette meta-information ... OK</span></span>
-<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="co">#&gt; * checking for LF line-endings in source and make files and shell scripts</span></span>
-<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="co">#&gt; * checking for empty or unneeded directories</span></span>
-<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="co">#&gt; * building ‘badpackage_1.0.0.tar.gz’</span></span>
-<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="co">#&gt; Preparing: description</span></span>
-<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="co">#&gt; Preparing: lintr</span></span>
-<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="co">#&gt; Preparing: namespace</span></span>
-<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="co">#&gt; Preparing: rcmdcheck</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="co"># show the result</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>g</span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; ── GP badpackage ───────────────────────────────────────────────────────────────</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; It is good practice to</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt;   ✖ not use &quot;Depends&quot; in DESCRIPTION, as it can cause name clashes, and</span></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;     poor interaction with other packages. Use &quot;Imports&quot; instead.</span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;   ✖ omit &quot;Date&quot; in DESCRIPTION. It is not required and it gets invalid</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;     quite often. A build date will be added to the package when you</span></span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;     perform `R CMD build` on it.</span></span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;   ✖ add a &quot;URL&quot; field to DESCRIPTION. It helps users find information</span></span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt;     about your package online. If your package does not have a</span></span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt;     homepage, add an URL to GitHub, or the CRAN package package page.</span></span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt;   ✖ add a &quot;BugReports&quot; field to DESCRIPTION, and point it to a bug</span></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt;     tracker. Many online code hosting services provide bug trackers for</span></span>
-<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt;     free, https://github.com, https://gitlab.com, etc.</span></span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt;   ✖ omit trailing semicolons from code lines. They are not needed and</span></span>
-<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co">#&gt;     most R coding standards forbid them</span></span>
-<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="co">#&gt;     R/semicolons.R:4:30</span></span>
-<span id="cb2-23"><a href="#cb2-23" tabindex="-1"></a><span class="co">#&gt;     R/semicolons.R:5:29</span></span>
-<span id="cb2-24"><a href="#cb2-24" tabindex="-1"></a><span class="co">#&gt;     R/semicolons.R:9:38</span></span>
-<span id="cb2-25"><a href="#cb2-25" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-26"><a href="#cb2-26" tabindex="-1"></a><span class="co">#&gt;   ✖ not import packages as a whole, as this can cause name clashes</span></span>
-<span id="cb2-27"><a href="#cb2-27" tabindex="-1"></a><span class="co">#&gt;     between the imported packages. Instead, import only the specific</span></span>
-<span id="cb2-28"><a href="#cb2-28" tabindex="-1"></a><span class="co">#&gt;     functions you need.</span></span>
-<span id="cb2-29"><a href="#cb2-29" tabindex="-1"></a><span class="co">#&gt;   ✖ fix this R CMD check ERROR: VignetteBuilder package not declared:</span></span>
-<span id="cb2-30"><a href="#cb2-30" tabindex="-1"></a><span class="co">#&gt;     ‘knitr’ See section ‘The DESCRIPTION file’ in the ‘Writing R</span></span>
-<span id="cb2-31"><a href="#cb2-31" tabindex="-1"></a><span class="co">#&gt;     Extensions’ manual.</span></span>
-<span id="cb2-32"><a href="#cb2-32" tabindex="-1"></a><span class="co">#&gt;   ✖ avoid &#39;T&#39; and &#39;F&#39;, as they are just variables which are set to the</span></span>
-<span id="cb2-33"><a href="#cb2-33" tabindex="-1"></a><span class="co">#&gt;     logicals &#39;TRUE&#39; and &#39;FALSE&#39; by default, but are not reserved words</span></span>
-<span id="cb2-34"><a href="#cb2-34" tabindex="-1"></a><span class="co">#&gt;     and hence can be overwritten by the user.  Hence, one should always</span></span>
-<span id="cb2-35"><a href="#cb2-35" tabindex="-1"></a><span class="co">#&gt;     use &#39;TRUE&#39; and &#39;FALSE&#39; for the logicals.</span></span>
-<span id="cb2-36"><a href="#cb2-36" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-37"><a href="#cb2-37" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
-<span id="cb2-38"><a href="#cb2-38" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
-<span id="cb2-39"><a href="#cb2-39" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
-<span id="cb2-40"><a href="#cb2-40" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
-<span id="cb2-41"><a href="#cb2-41" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
-<span id="cb2-42"><a href="#cb2-42" tabindex="-1"></a><span class="co">#&gt;     ... and 4 more lines</span></span>
-<span id="cb2-43"><a href="#cb2-43" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-44"><a href="#cb2-44" tabindex="-1"></a><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
-<p>So with this package, we’ve done a few things in the DESCRIPTION file
-for which there are reasons not to do them, have unnecessary trailing
-semicolons in the code and used <code>T</code> and <code>F</code> for
-<code>TRUE</code> and <code>FALSE</code>. The output of
-<code>gp()</code> tells you what you did that isn’t considered good
-practice and if it’s in the R code, it points you the location of your
-faux-pas. In general, the messages are supposed to not only point out to
-you <em>what</em> you might want to avoid but also <em>why</em>.</p>
-<p>The above example tries to run all 230 checks available, to see the
-full list use <code>all_checks()</code>. If you only want to run a
-subset of the checks, e.g., the one on the URL field in the DESCRIPTION,
-you can specify the checks by name:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># what is the name of the check?</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;url&quot;</span>, <span class="fu">all_checks</span>(), <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;description_url&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co"># run only this check</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>g_url <span class="ot">&lt;-</span> <span class="fu">gp</span>(pkg_path, <span class="at">checks =</span> <span class="st">&quot;description_url&quot;</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; Preparing: description</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>g_url</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt; ── GP badpackage ───────────────────────────────────────────────────────────────</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; It is good practice to</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt;   ✖ add a &quot;URL&quot; field to DESCRIPTION. It helps users find information</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt;     about your package online. If your package does not have a</span></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt;     homepage, add an URL to GitHub, or the CRAN package package page.</span></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co"># goodpractice ships with an example package that has some issues</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>pkg_path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;bad1&quot;</span>, <span class="at">package =</span> <span class="st">&quot;goodpractice&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">gp</span>(pkg_path)</span></code></pre></div>
+<pre><code>#&gt; ── Preparing goodpractice for badpackage ───────────────────────────────────────
+#&gt; ℹ Preparing: description
+#&gt; ✔ Preparing: description [32ms]
+#&gt; 
+#&gt; ℹ Preparing: code_structure
+#&gt; ✔ Preparing: code_structure [9ms]
+#&gt; 
+#&gt; ℹ Preparing: namespace
+#&gt; ✔ Preparing: namespace [10ms]
+#&gt; 
+#&gt; ℹ Preparing: covr
+#&gt; ✔ Preparing: covr [1.7s]
+#&gt; 
+#&gt; ℹ Preparing: cyclocomp
+#&gt; ✔ Preparing: cyclocomp [8.8s]
+#&gt; 
+#&gt; ℹ Preparing: package_structure
+#&gt; ✔ Preparing: package_structure [10ms]
+#&gt; 
+#&gt; ℹ Preparing: lintr
+#&gt; ✔ Preparing: lintr [326ms]
+#&gt; 
+#&gt; ℹ Preparing: rcmdcheck
+#&gt; ✔ Preparing: rcmdcheck [7.1s]
+#&gt; 
+#&gt; ℹ Preparing: rd
+#&gt; ✔ Preparing: rd [11ms]
+#&gt; 
+#&gt; ℹ Preparing: revdep
+#&gt; ✔ Preparing: revdep [388ms]
+#&gt; 
+#&gt; ℹ Preparing: roxygen2
+#&gt; ✔ Preparing: roxygen2 [44ms]
+#&gt; 
+#&gt; ℹ Preparing: spelling
+#&gt; ✔ Preparing: spelling [9ms]
+#&gt; 
+#&gt; ℹ Preparing: urlchecker
+#&gt; ✔ Preparing: urlchecker [386ms]
+#&gt; 
+#&gt; ℹ Preparing: vignette
+#&gt; ✔ Preparing: vignette [12ms]
+#&gt; </code></pre>
+<p>Printing the result shows only the checks that failed:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>g</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#&gt; ── It is good practice to ──────────────────────────────────────────────────────</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; ✖ remove or use internal functions that are defined but never called. Dead code</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt;   increases maintenance burden.</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt;     &#39;R/semicolons.R:2&#39;</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;     &#39;R/tf.R:2&#39;</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt;     &#39;R/tf.R:9&#39;</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt;     &#39;R/tf2.R:2&#39;</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co">#&gt; ✖ not use Depends in &#39;DESCRIPTION&#39;, as it can cause name clashes, and poor</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co">#&gt;   interaction with other packages. Use Imports instead.</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co">#&gt; ✖ omit the Date field in &#39;DESCRIPTION&#39;. It is not required and it gets invalid</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="co">#&gt;   quite often. A build date will be added to the package when you perform `R</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#&gt;   CMD build` on it.</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="co">#&gt; ✖ add a URL field to &#39;DESCRIPTION&#39;. It helps users find information about your</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="co">#&gt;   package online. If your package does not have a homepage, add an URL to</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="co">#&gt;   GitHub, or the CRAN package page.</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="co">#&gt; ✖ add a BugReports field to &#39;DESCRIPTION&#39;, and point it to a bug tracker. Many</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="co">#&gt;   online code hosting services provide bug trackers for free,</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="co">#&gt;   &lt;https://github.com&gt;, &lt;https://gitlab.com&gt;, etc.</span></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a><span class="co">#&gt; ✖ add a &#39;README.md&#39; (or &#39;README.Rmd&#39;) file to the top-level directory. A good</span></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a><span class="co">#&gt;   README describes what the package does, how to install it, and includes a</span></span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="co">#&gt;   short example.</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a><span class="co">#&gt; ✖ add a &#39;NEWS.md&#39; file to track user-visible changes between releases. See</span></span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a><span class="co">#&gt;   &lt;https://style.tidyverse.org/news.html&gt; for formatting guidance.</span></span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a><span class="co">#&gt; ✖ use the &#39;.R&#39; file extension for R scripts, not &#39;.r&#39; or &#39;.q&#39;. CRAN requires</span></span>
+<span id="cb4-35"><a href="#cb4-35" tabindex="-1"></a><span class="co">#&gt;   the uppercase &#39;.R&#39; extension.</span></span>
+<span id="cb4-36"><a href="#cb4-36" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-37"><a href="#cb4-37" tabindex="-1"></a><span class="co">#&gt;     &#39;R/bad_extension.r&#39;</span></span>
+<span id="cb4-38"><a href="#cb4-38" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-39"><a href="#cb4-39" tabindex="-1"></a><span class="co">#&gt; ✖ omit trailing semicolons from code lines. They are not needed and most R</span></span>
+<span id="cb4-40"><a href="#cb4-40" tabindex="-1"></a><span class="co">#&gt;   coding standards forbid them</span></span>
+<span id="cb4-41"><a href="#cb4-41" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-42"><a href="#cb4-42" tabindex="-1"></a><span class="co">#&gt;     &#39;R/semicolons.R:4:30&#39;</span></span>
+<span id="cb4-43"><a href="#cb4-43" tabindex="-1"></a><span class="co">#&gt;     &#39;R/semicolons.R:5:29&#39;</span></span>
+<span id="cb4-44"><a href="#cb4-44" tabindex="-1"></a><span class="co">#&gt;     &#39;R/semicolons.R:9:38&#39;</span></span>
+<span id="cb4-45"><a href="#cb4-45" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-46"><a href="#cb4-46" tabindex="-1"></a><span class="co">#&gt; ✖ avoid `x == TRUE` or `x == FALSE`. Use `x` or `!x` directly. The comparison</span></span>
+<span id="cb4-47"><a href="#cb4-47" tabindex="-1"></a><span class="co">#&gt;   is redundant and less readable.</span></span>
+<span id="cb4-48"><a href="#cb4-48" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-49"><a href="#cb4-49" tabindex="-1"></a><span class="co">#&gt;     &#39;R/tf.R:3:7&#39;</span></span>
+<span id="cb4-50"><a href="#cb4-50" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-51"><a href="#cb4-51" tabindex="-1"></a><span class="co">#&gt; ✖ not import packages as a whole, as this can cause name clashes between the</span></span>
+<span id="cb4-52"><a href="#cb4-52" tabindex="-1"></a><span class="co">#&gt;   imported packages, especially over time as packages change. Instead, import</span></span>
+<span id="cb4-53"><a href="#cb4-53" tabindex="-1"></a><span class="co">#&gt;   only the specific functions you need.</span></span>
+<span id="cb4-54"><a href="#cb4-54" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-55"><a href="#cb4-55" tabindex="-1"></a><span class="co">#&gt; ✖ fix this R CMD check ERROR: VignetteBuilder package not declared: ‘knitr’ See</span></span>
+<span id="cb4-56"><a href="#cb4-56" tabindex="-1"></a><span class="co">#&gt;   section ‘The DESCRIPTION file’ in the ‘Writing R Extensions’ manual.</span></span>
+<span id="cb4-57"><a href="#cb4-57" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-58"><a href="#cb4-58" tabindex="-1"></a><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
+<p>Each line starting with a cross is one failed check. The text after
+the cross explains what to fix and why. The indented file paths below it
+show exactly where in your code the problem was found — in terminals and
+IDEs that support it, these paths are clickable. If every check passes,
+you get a short praise message instead.</p>
 </div>
-<div id="doing-more-than-just-printing" class="section level3">
-<h3>Doing more than just printing</h3>
-<p>Apart from printing a <code>goodPractice</code> object as returned by
-<code>gp()</code> to access the advice, you can also access which checks
-were carried out and which of those failed:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># which checks were carried out?</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">checks</span>(g_url)</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;description_url&quot;</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co"># which checks failed?</span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">failed_checks</span>(g)</span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt; [1] &quot;no_description_depends&quot;                </span></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt; [2] &quot;no_description_date&quot;                   </span></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#&gt; [3] &quot;description_url&quot;                       </span></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#&gt; [4] &quot;description_bugreports&quot;                </span></span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">#&gt; [5] &quot;lintr_trailing_semicolon_linter&quot;       </span></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">#&gt; [6] &quot;no_import_package_as_a_whole&quot;          </span></span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">#&gt; [7] &quot;rcmdcheck_package_dependencies_present&quot;</span></span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">#&gt; [8] &quot;truefalse_not_tf&quot;</span></span></code></pre></div>
-<p>To access all the checks carried out with their results in a data
-frame, use <code>results()</code> on your <code>goodPractice</code>
-object.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># show the first 5 checks carried out and their results</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">results</span>(g)[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="co">#&gt;                    check result</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="co">#&gt; 1                   covr     NA</span></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">#&gt; 2              cyclocomp   TRUE</span></span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co">#&gt; 3 no_description_depends  FALSE</span></span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="co">#&gt; 4    no_description_date  FALSE</span></span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="co">#&gt; 5        description_url  FALSE</span></span></code></pre></div>
-<p>Note that the code coverage could not be calculated. The
-corresponding check does not show up in the failed checks (because it
-was not carried out) and the result is <code>NA</code>. It is also
-possible to export the results to a JSON file with
-<code>export_json()</code>.</p>
+<div id="what-gp-actually-does" class="section level2">
+<h2>What gp() actually does</h2>
+<p>When you call <code>gp()</code>, two things happen in sequence:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Gather data</strong> — goodpractice runs a set of
+preparation steps, one per check group. One step runs
+<code>R CMD check</code>. Another computes code coverage by installing
+your package and exercising the tests. Another lints your source files.
+Each step runs exactly once and stores its results for the checks to
+use.</p></li>
+<li><p><strong>Run checks</strong> — each check reads from the stored
+results and returns pass, fail, or skip. A single preparation step can
+feed many checks — the <code>rcmdcheck</code> step alone powers over 200
+individual checks, all drawn from a single <code>R CMD check</code>
+run.</p></li>
+</ol>
+<p>This two-step design is why goodpractice can run 250+ checks without
+repeating expensive work. It also means you can skip an entire category
+of checks by excluding its group — more on that below.</p>
 </div>
+<div id="choosing-what-to-run" class="section level2">
+<h2>Choosing what to run</h2>
+<p>By default, <code>gp()</code> runs everything in
+<code>default_checks()</code> — about 250 checks covering documentation,
+code style, test coverage, namespace hygiene, and CRAN compliance:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">default_checks</span>())</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#&gt; [1] 308</span></span></code></pre></div>
+<p>If you only need a specific check, pass its name to the
+<code>checks</code> argument. You can find check names with
+<code>all_checks()</code> and filter with <code>grep()</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># find checks related to URLs</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">grep</span>(<span class="st">&quot;url&quot;</span>, <span class="fu">all_checks</span>(), <span class="at">value =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt; [1] &quot;description_url&quot;                    &quot;description_urls_in_angle_brackets&quot;</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt; [3] &quot;description_urls_not_http&quot;          &quot;urlchecker_ok&quot;                     </span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt; [5] &quot;urlchecker_no_redirects&quot;</span></span></code></pre></div>
+<p>Then run just the ones you care about:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>g_url <span class="ot">&lt;-</span> <span class="fu">gp</span>(pkg_path, <span class="at">checks =</span> <span class="st">&quot;description_url&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">#&gt; ── Preparing goodpractice for badpackage ───────────────────────────────────────</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt; ℹ Preparing: description</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt; ✔ Preparing: description [12ms]</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>g_url</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#&gt; ── It is good practice to ──────────────────────────────────────────────────────</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">#&gt; ✖ add a URL field to &#39;DESCRIPTION&#39;. It helps users find information about your</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">#&gt;   package online. If your package does not have a homepage, add an URL to</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">#&gt;   GitHub, or the CRAN package page.</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
+<p>To go the other direction and run <em>more</em> than the defaults,
+combine check sets. For example, to add the optional tidyverse style
+checks on top of the defaults:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">gp</span>(<span class="st">&quot;.&quot;</span>, <span class="at">checks =</span> <span class="fu">c</span>(<span class="fu">default_checks</span>(), <span class="fu">tidyverse_checks</span>()))</span></code></pre></div>
+<p>Three helper functions give you the available check names:</p>
+<ul>
+<li><code>default_checks()</code> — the standard set, run by
+default</li>
+<li><code>tidyverse_checks()</code> — opt-in style checks following <a href="https://style.tidyverse.org/">tidyverse conventions</a></li>
+<li><code>all_checks()</code> — both combined</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">tidyverse_checks</span>())</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="co">#&gt; [1] 30</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">all_checks</span>())</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="co">#&gt; [1] 338</span></span></code></pre></div>
+</div>
+<div id="check-groups" class="section level2">
+<h2>Check groups</h2>
+<p>Every check belongs to at least one <em>check group</em>. Groups let
+you work with categories of checks instead of individual names:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">all_check_groups</span>()</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;covr&quot;              &quot;cyclocomp&quot;         &quot;description&quot;      </span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co">#&gt;  [4] &quot;lintr&quot;             &quot;namespace&quot;         &quot;rcmdcheck&quot;        </span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;rd&quot;                &quot;revdep&quot;            &quot;roxygen2&quot;         </span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co">#&gt; [10] &quot;code_structure&quot;    &quot;package_structure&quot; &quot;spelling&quot;         </span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="co">#&gt; [13] &quot;tidyverse&quot;         &quot;urlchecker&quot;        &quot;vignette&quot;</span></span></code></pre></div>
+<p>To see which checks belong to a group, use
+<code>checks_by_group()</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">checks_by_group</span>(<span class="st">&quot;description&quot;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;no_obsolete_deps&quot;                   &quot;no_description_depends&quot;            </span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co">#&gt;  [3] &quot;no_description_date&quot;                &quot;description_url&quot;                   </span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;description_not_start_with_package&quot; &quot;description_urls_in_angle_brackets&quot;</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;description_doi_format&quot;             &quot;description_urls_not_http&quot;         </span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;no_description_duplicate_deps&quot;      &quot;description_valid_roles&quot;           </span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="co">#&gt; [11] &quot;description_pkgname_single_quoted&quot;  &quot;description_bugreports&quot;            </span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="co">#&gt; [13] &quot;reverse_dependencies&quot;</span></span></code></pre></div>
+<p>You can select multiple groups at once:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co"># run only DESCRIPTION and namespace checks</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">gp</span>(<span class="st">&quot;.&quot;</span>, <span class="at">checks =</span> <span class="fu">checks_by_group</span>(<span class="st">&quot;description&quot;</span>, <span class="st">&quot;namespace&quot;</span>))</span></code></pre></div>
+<p>There is also a <code>describe_check_groups()</code> function to
+return full descriptions of all checks (modified here from default
+screen output to look nice):</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="fu">describe_check_groups</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Group
+</th>
+<th style="text-align:left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+covr
+</td>
+<td style="text-align:left;width: 100%; ">
+Test coverage report from ‘covr’ package.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+cyclocomp
+</td>
+<td style="text-align:left;width: 100%; ">
+Function cyclocomplexity with the ‘cyclocomp’ package; default limit of
+50.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+description
+</td>
+<td style="text-align:left;width: 100%; ">
+Check common issues with DESCRIPTION files, including formatting issues
+with URLs, DOIs, BugReports, package names, and author and contributor
+roles
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+lintr
+</td>
+<td style="text-align:left;width: 100%; ">
+Check package linting with the ‘lintr’ package (85 linters in total).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+namespace
+</td>
+<td style="text-align:left;width: 100%; ">
+Check import and export patterns in NAMESPACE file
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+rcmdcheck
+</td>
+<td style="text-align:left;width: 100%; ">
+Run ‘R CMD check’ via the ‘rcmdcheck’ package. ~200 checks for
+documentation, namespace, compilation, tests, vignettes, CRAN
+compliance.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+rd
+</td>
+<td style="text-align:left;width: 100%; ">
+Check whether or not ’man/*.Rd’ function documentation includes both
+example code and return values (regardless of whether or not
+documentation files are generated by ‘Roxygen2’).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+revdep
+</td>
+<td style="text-align:left;width: 100%; ">
+Check whether package has reverse dependencies, and recommending running
+‘reddev’ package if so.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+roxygen2
+</td>
+<td style="text-align:left;width: 100%; ">
+Only for packages within use ‘Roxygen2’ to generate documentation.
+Checks for best practices in Roxygen2 tag usage, flags any unknown tags,
+and ensures ‘inheritParams’ is used correctly.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+code_structure
+</td>
+<td style="text-align:left;width: 100%; ">
+Common issues like duplicated or unused function bodies, that ‘print()’
+returns insivibly, that ‘on.exit()’ uses ‘add = TRUE’, and checks on
+function length (default max50 lines).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+package_structure
+</td>
+<td style="text-align:left;width: 100%; ">
+Generic checks like whether a package has a README, a NEWS file, or
+whether all files use a ‘.R’ extension, and not ‘.r’.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+spelling
+</td>
+<td style="text-align:left;width: 100%; ">
+Check spelling with the ‘spelling’ package.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+tidyverse
+</td>
+<td style="text-align:left;width: 100%; ">
+Check compliance with the Tidyverse style guide; mostly via ‘lintr’
+package. (These checks are not run by default; and only if
+‘tidyverse_checks()’ are added to ‘checks_by_group()’.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+urlchecker
+</td>
+<td style="text-align:left;width: 100%; ">
+Check whether all URLs are valid, includingidentifying any redirects.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;white-space: nowrap">
+vignette
+</td>
+<td style="text-align:left;width: 100%; ">
+Check that vignette code does not use either ‘rm()’ or ‘setwd()’.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="excluding-check-groups" class="section level2">
+<h2>Excluding check groups</h2>
+<p>The checks themselves run in milliseconds — what takes time is the
+data gathering. Computing code coverage with <code>covr</code> requires
+installing your package and running all your tests. Running
+<code>R CMD check</code> via <code>rcmdcheck</code> exercises
+documentation, examples, vignettes, and compilation. On a large package,
+these two steps alone can take several minutes.</p>
+<p>If you only care about code style or DESCRIPTION metadata right now,
+you can skip the slow groups entirely. Set the
+<code>goodpractice.exclude_check_groups</code> option to a character
+vector of group names:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># skip coverage and R CMD check — just run the fast checks</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="fu">options</span>(<span class="at">goodpractice.exclude_check_groups =</span> <span class="fu">c</span>(<span class="st">&quot;covr&quot;</span>, <span class="st">&quot;rcmdcheck&quot;</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="fu">gp</span>(<span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+<p>Every check that depends on a skipped group is automatically excluded
+too.</p>
+<p>For CI/CD pipelines, you can set this via the
+<code>GP_EXCLUDE_CHECK_GROUPS</code> environment variable instead of
+modifying R code:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="va">GP_EXCLUDE_CHECK_GROUPS</span><span class="op">=</span>covr,rcmdcheck <span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">&#39;goodpractice::gp(&quot;.&quot;)&#39;</span></span></code></pre></div>
+<p>When both the R option and the environment variable are set, the R
+option wins. Exclusion only applies when you use the default check set —
+if you explicitly pass check names to the <code>checks</code> argument,
+exclusion settings are ignored and those checks always run.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="fu">options</span>(<span class="at">goodpractice.exclude_check_groups =</span> <span class="st">&quot;covr&quot;</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="co"># covr checks are excluded here (using defaults)</span></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a><span class="fu">gp</span>(<span class="st">&quot;.&quot;</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" tabindex="-1"></a><span class="co"># the &quot;covr&quot; check runs here because we asked for it by name</span></span>
+<span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a><span class="fu">gp</span>(<span class="st">&quot;.&quot;</span>, <span class="at">checks =</span> <span class="st">&quot;covr&quot;</span>)</span></code></pre></div>
+</div>
+<div id="excluding-files" class="section level2">
+<h2>Excluding files</h2>
+<p>If your package contains generated code or vendored files that should
+not be checked, you can exclude specific files. Set the
+<code>goodpractice.exclude_path</code> option to a character vector of
+paths relative to the package root:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">options</span>(<span class="at">goodpractice.exclude_path =</span> <span class="fu">c</span>(<span class="st">&quot;R/RcppExports.R&quot;</span>, <span class="st">&quot;R/generated_bindings.R&quot;</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="fu">gp</span>(<span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+<p>Or via the <code>GP_EXCLUDE_PATH</code> environment variable:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="va">GP_EXCLUDE_PATH</span><span class="op">=</span>R/RcppExports.R,R/generated.R <span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">&#39;goodpractice::gp(&quot;.&quot;)&#39;</span></span></code></pre></div>
+<p>Excluded files are skipped by lintr, treesitter, expression, and
+roxygen2 checks.</p>
+</div>
+<div id="parallel-preparation" class="section level2">
+<h2>Parallel preparation</h2>
+<p>Preparation steps run sequentially by default. If you have the <a href="https://cran.r-project.org/package=future.apply">future.apply</a>
+package installed, you can run them in parallel by setting a
+<code>future::plan()</code>:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>future<span class="sc">::</span><span class="fu">plan</span>(<span class="st">&quot;multisession&quot;</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="fu">gp</span>(<span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+<p>This can significantly speed up runs on large packages where multiple
+slow preps (covr, rcmdcheck, lintr) would otherwise run one after
+another. Preps run in parallel only when a non-sequential plan is active
+— the default behaviour is unchanged.</p>
+</div>
+<div id="tidyverse-style-checks" class="section level2">
+<h2>Tidyverse style checks</h2>
+<p>The default checks deliberately stay away from style preferences —
+they focus on things that are good practice regardless of how you format
+your code.</p>
+<p>If you or your team follows the <a href="https://style.tidyverse.org/">tidyverse style guide</a>, you can
+opt into an additional set of style checks:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="co"># add tidyverse checks to the defaults</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="fu">gp</span>(<span class="st">&quot;.&quot;</span>, <span class="at">checks =</span> <span class="fu">c</span>(<span class="fu">default_checks</span>(), <span class="fu">tidyverse_checks</span>()))</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a><span class="co"># or run only the tidyverse checks</span></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a><span class="fu">gp</span>(<span class="st">&quot;.&quot;</span>, <span class="at">checks =</span> <span class="fu">tidyverse_checks</span>())</span></code></pre></div>
+<p>Most of these are powered by <a href="https://cran.r-project.org/package=lintr">lintr</a> — brace
+placement, spacing, naming conventions, and so on. They run
+<code>lintr::lint_package()</code> once and share the results across all
+lintr-based checks. If your package has a <code>.lintr</code>
+configuration file, those settings are respected: disabled linters stay
+disabled, exclusions are honoured.</p>
+<p>A few tidyverse checks go beyond linting and look at package
+structure directly — whether R file names use snake_case, whether test
+files mirror source files, whether functions use <code>missing()</code>
+where <code>NULL</code> defaults would be clearer, and whether exported
+functions appear before internal helpers.</p>
+<p>All tidyverse checks belong to the <code>tidyverse</code> group:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">checks_by_group</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;tidyverse_brace_linter&quot;                    </span></span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="co">#&gt;  [2] &quot;tidyverse_commas_linter&quot;                   </span></span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="co">#&gt;  [3] &quot;tidyverse_commented_code_linter&quot;           </span></span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a><span class="co">#&gt;  [4] &quot;tidyverse_equals_na_linter&quot;                </span></span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;tidyverse_function_left_parentheses_linter&quot;</span></span>
+<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;tidyverse_indentation_linter&quot;              </span></span>
+<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;tidyverse_infix_spaces_linter&quot;             </span></span>
+<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a><span class="co">#&gt;  [8] &quot;tidyverse_object_length_linter&quot;            </span></span>
+<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;tidyverse_object_name_linter&quot;              </span></span>
+<span id="cb21-11"><a href="#cb21-11" tabindex="-1"></a><span class="co">#&gt; [10] &quot;tidyverse_object_usage_linter&quot;             </span></span>
+<span id="cb21-12"><a href="#cb21-12" tabindex="-1"></a><span class="co">#&gt; [11] &quot;tidyverse_paren_body_linter&quot;               </span></span>
+<span id="cb21-13"><a href="#cb21-13" tabindex="-1"></a><span class="co">#&gt; [12] &quot;tidyverse_pipe_consistency_linter&quot;         </span></span>
+<span id="cb21-14"><a href="#cb21-14" tabindex="-1"></a><span class="co">#&gt; [13] &quot;tidyverse_pipe_continuation_linter&quot;        </span></span>
+<span id="cb21-15"><a href="#cb21-15" tabindex="-1"></a><span class="co">#&gt; [14] &quot;tidyverse_quotes_linter&quot;                   </span></span>
+<span id="cb21-16"><a href="#cb21-16" tabindex="-1"></a><span class="co">#&gt; [15] &quot;tidyverse_return_linter&quot;                   </span></span>
+<span id="cb21-17"><a href="#cb21-17" tabindex="-1"></a><span class="co">#&gt; [16] &quot;tidyverse_spaces_inside_linter&quot;            </span></span>
+<span id="cb21-18"><a href="#cb21-18" tabindex="-1"></a><span class="co">#&gt; [17] &quot;tidyverse_spaces_left_parentheses_linter&quot;  </span></span>
+<span id="cb21-19"><a href="#cb21-19" tabindex="-1"></a><span class="co">#&gt; [18] &quot;tidyverse_trailing_blank_lines_linter&quot;     </span></span>
+<span id="cb21-20"><a href="#cb21-20" tabindex="-1"></a><span class="co">#&gt; [19] &quot;tidyverse_trailing_whitespace_linter&quot;      </span></span>
+<span id="cb21-21"><a href="#cb21-21" tabindex="-1"></a><span class="co">#&gt; [20] &quot;tidyverse_vector_logic_linter&quot;             </span></span>
+<span id="cb21-22"><a href="#cb21-22" tabindex="-1"></a><span class="co">#&gt; [21] &quot;tidyverse_whitespace_linter&quot;               </span></span>
+<span id="cb21-23"><a href="#cb21-23" tabindex="-1"></a><span class="co">#&gt; [22] &quot;tidyverse_assignment_linter&quot;               </span></span>
+<span id="cb21-24"><a href="#cb21-24" tabindex="-1"></a><span class="co">#&gt; [23] &quot;tidyverse_line_length_linter&quot;              </span></span>
+<span id="cb21-25"><a href="#cb21-25" tabindex="-1"></a><span class="co">#&gt; [24] &quot;tidyverse_semicolon_linter&quot;                </span></span>
+<span id="cb21-26"><a href="#cb21-26" tabindex="-1"></a><span class="co">#&gt; [25] &quot;tidyverse_seq_linter&quot;                      </span></span>
+<span id="cb21-27"><a href="#cb21-27" tabindex="-1"></a><span class="co">#&gt; [26] &quot;tidyverse_T_and_F_symbol_linter&quot;           </span></span>
+<span id="cb21-28"><a href="#cb21-28" tabindex="-1"></a><span class="co">#&gt; [27] &quot;tidyverse_r_file_names&quot;                    </span></span>
+<span id="cb21-29"><a href="#cb21-29" tabindex="-1"></a><span class="co">#&gt; [28] &quot;tidyverse_test_file_names&quot;                 </span></span>
+<span id="cb21-30"><a href="#cb21-30" tabindex="-1"></a><span class="co">#&gt; [29] &quot;tidyverse_no_missing&quot;                      </span></span>
+<span id="cb21-31"><a href="#cb21-31" tabindex="-1"></a><span class="co">#&gt; [30] &quot;tidyverse_export_order&quot;</span></span></code></pre></div>
+</div>
+<div id="working-with-results" class="section level2">
+<h2>Working with results</h2>
+<p>Beyond printing, the object returned by <code>gp()</code> gives you
+programmatic access to the results.</p>
+<p><code>checks()</code> returns the names of all checks that were
+run:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="fu">checks</span>(g_url)</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a><span class="co">#&gt; [1] &quot;description_url&quot;</span></span></code></pre></div>
+<p><code>failed_checks()</code> returns only the names of the checks
+that failed:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="fu">failed_checks</span>(g)</span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a><span class="co">#&gt;  [1] &quot;complexity_unused_internal&quot;            </span></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="co">#&gt;  [2] &quot;no_description_depends&quot;                </span></span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a><span class="co">#&gt;  [3] &quot;no_description_date&quot;                   </span></span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a><span class="co">#&gt;  [4] &quot;description_url&quot;                       </span></span>
+<span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a><span class="co">#&gt;  [5] &quot;description_bugreports&quot;                </span></span>
+<span id="cb23-7"><a href="#cb23-7" tabindex="-1"></a><span class="co">#&gt;  [6] &quot;has_readme&quot;                            </span></span>
+<span id="cb23-8"><a href="#cb23-8" tabindex="-1"></a><span class="co">#&gt;  [7] &quot;has_news&quot;                              </span></span>
+<span id="cb23-9"><a href="#cb23-9" tabindex="-1"></a><span class="co">#&gt;  [8] &quot;r_file_extension&quot;                      </span></span>
+<span id="cb23-10"><a href="#cb23-10" tabindex="-1"></a><span class="co">#&gt;  [9] &quot;lintr_semicolon_linter&quot;                </span></span>
+<span id="cb23-11"><a href="#cb23-11" tabindex="-1"></a><span class="co">#&gt; [10] &quot;lintr_redundant_equals_linter&quot;         </span></span>
+<span id="cb23-12"><a href="#cb23-12" tabindex="-1"></a><span class="co">#&gt; [11] &quot;no_import_package_as_a_whole&quot;          </span></span>
+<span id="cb23-13"><a href="#cb23-13" tabindex="-1"></a><span class="co">#&gt; [12] &quot;rcmdcheck_package_dependencies_present&quot;</span></span></code></pre></div>
+<p><code>results()</code> gives you a data frame with one row per check
+and a <code>passed</code> column that is <code>TRUE</code>,
+<code>FALSE</code>, or <code>NA</code> (skipped):</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="fu">results</span>(g)[<span class="dv">1</span><span class="dt">L</span><span class="sc">:</span><span class="dv">5</span><span class="dt">L</span>, ]</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="co">#&gt;                        check passed</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="co">#&gt; 1           no_obsolete_deps   TRUE</span></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="co">#&gt; 2     print_return_invisible   TRUE</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a><span class="co">#&gt; 3            on_exit_has_add   TRUE</span></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a><span class="co">#&gt; 4 complexity_function_length   TRUE</span></span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a><span class="co">#&gt; 5 complexity_unused_internal  FALSE</span></span></code></pre></div>
+<p>A check shows <code>NA</code> when its preparation step failed or was
+excluded — it was not evaluated, so it neither passed nor failed.</p>
+<p>To see all file positions for failed checks (not just the first five
+that <code>print()</code> shows), use <code>print()</code> with a higher
+limit:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="fu">print</span>(g, <span class="at">positions_limit =</span> <span class="cn">Inf</span>)</span></code></pre></div>
+<p>You can also export the full results to JSON for use in other
+tools:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="fu">export_json</span>(g, <span class="st">&quot;gp_results.json&quot;</span>)</span></code></pre></div>
+</div>
+<div id="custom-checks" class="section level2">
+<h2>Custom checks</h2>
+<p>goodpractice is extensible — you can define your own checks and
+preparation steps to enforce team-specific conventions. The
+<code>gp</code> string in each check supports <a href="https://cli.r-lib.org/reference/inline-markup.html">cli inline
+markup</a> — use <code>{.fn func}</code> for function names,
+<code>{.code expression}</code> for code, <code>{.file path}</code> for
+file paths, <code>{.field name}</code> for field names, and
+<code>{.url url}</code> for URLs.</p>
+<p>See <code>vignette(&quot;custom_checks&quot;)</code> for the full guide.</p>
 </div>
 
 

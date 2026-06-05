@@ -1,0 +1,7 @@
+Package: goodtidyverse
+Title: Good Tidyverse Style Package
+Version: 1.0.0
+Author: Test
+Maintainer: Test <test@test.com>
+Description: A package that follows tidyverse style for testing.
+License: MIT

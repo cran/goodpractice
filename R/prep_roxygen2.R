@@ -1,0 +1,75 @@
+#' @include lists.R prep_utils.R treesitter.R
+#' @importFrom roxygen2 parse_package
+
+#' See #295 for updates to Roxygen2 DESC configs, thanks to @wkmor1
+#' @noRd
+uses_roxygen2 <- function(path) {
+  desc_path <- file.path(path, "DESCRIPTION")
+  if (!file.exists(desc_path)) return(FALSE)
+  fields <- names(read.dcf(desc_path)[1, ])
+  roxygen_ptn_to_v7 <- "^(\\s*?)Roxygen"
+  roxygen_ptn_v8 <- "^(\\s*?)Config\\/roxygen"
+  ptn <- paste0 (roxygen_ptn_to_v7, "|", roxygen_ptn_v8)
+  any(grepl(ptn, fields))
+}
+
+find_function_defs <- function(path, exclude_path = character()) {
+  ts <- ts_parse(path, exclude_path)
+  if (length(ts$functions) == 0) {
+    return(data.frame(name = character(), file = character(), line = integer()))
+  }
+  data.frame(
+    name = vapply(ts$functions, `[[`, "", "name"),
+    file = vapply(ts$functions, `[[`, "", "file"),
+    line = vapply(ts$functions, function(fn) fn$line, numeric(1))
+  )
+}
+
+parse_roxygen2 <- function(path, exclude_path = character()) {
+  if (!uses_roxygen2(path)) {
+    cli::cli_abort("Package does not use {.pkg roxygen2}.")
+  }
+
+  rfiles <- r_package_files(path, exclude_path)
+
+  parse_messages <- character()
+  blocks <- withCallingHandlers(
+    {
+      bl <- lapply(rfiles, roxygen2::parse_file)
+      do.call(c, bl)
+    },
+    message = function(m) {
+      msg <- conditionMessage(m)
+      if (grepl("is not a known tag", msg)) {
+        parse_messages <<- c(parse_messages, msg)
+        invokeRestart("muffleMessage")
+      }
+    }
+  )
+
+  ns <- tryCatch(
+    parseNamespaceFile(basename(path), dirname(path)),
+    error = function(e) {
+      list(
+        exports = character(),
+        S3methods = matrix(character(), ncol = 3, nrow = 0)
+      )
+    }
+  )
+
+  s3methods <- ns_s3_method_names(ns)
+
+  list(
+    blocks = blocks,
+    namespace_exports = ns$exports,
+    namespace_s3methods = s3methods,
+    function_defs = find_function_defs(path, exclude_path),
+    parse_messages = parse_messages
+  )
+}
+
+PREPS$roxygen2 <- function(state, path = state$path, quiet) {
+  run_prep_step(state, "roxygen2", function(path) {
+    parse_roxygen2(path, state$exclude_path %||% character())
+  }, path = path, silent = quiet)
+}

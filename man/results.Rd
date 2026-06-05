@@ -12,20 +12,23 @@ results(gp)
 \value{
 Data frame, with columns:
 \item{check}{The name of the check.}
-\item{result}{Logical, whether it has failed or not.}
+\item{passed}{Logical, whether the check passed.}
 }
 \description{
 Return all check results in a data frame
 }
 \examples{
 path <- system.file("bad1", package = "goodpractice")
-# run a subset of all checks available
-g <- gp(path, checks = all_checks()[3:16])
+# Run a subset of all checks available
+g <- gp(path, checks = all_checks()[9:16])
+results(g)
+# Or run with named check groups
+g <- gp(path, checks = checks_by_group("description", "namespace"))
 results(g)
 }
 \seealso{
-Other API: 
-\code{\link{checks}()},
-\code{\link{failed_checks}()}
+Other API:
+\code{\link[=checks]{checks()}},
+\code{\link[=failed_checks]{failed_checks()}}
 }
 \concept{API}

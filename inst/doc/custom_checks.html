@@ -12,7 +12,7 @@
 
 <meta name="author" content="Hannah Frick" />
 
-<meta name="date" content="2024-06-03" />
+<meta name="date" content="2026-06-05" />
 
 <title>Custom Checks</title>
 
@@ -50,8 +50,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -62,7 +63,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -340,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Custom Checks</h1>
 <h4 class="author">Hannah Frick</h4>
-<h4 class="date">2024-06-03</h4>
+<h4 class="date">2026-06-05</h4>
 
 
 
@@ -397,32 +398,16 @@ function. All checks to be carried out, regardless of whether they are
 provided by the <strong>goodpractice</strong> package or custom checks,
 must be named in the <code>checks</code> argument to
 <code>gp()</code>.</p>
-<p>The check on <code>T</code>/<code>F</code> implemented in the package
-gives more helpful advice than this simplified version and returns which
-files contain <code>T</code> and <code>F</code> so let’s do a quick
-comparison and run both versions:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># get path to example package</span></span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>pkg_path <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;bad1&quot;</span>, <span class="at">package =</span> <span class="st">&quot;goodpractice&quot;</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">gp</span>(pkg_path, <span class="at">checks =</span> <span class="fu">c</span>(<span class="st">&quot;simple_tf&quot;</span>, <span class="st">&quot;truefalse_not_tf&quot;</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">gp</span>(pkg_path, <span class="at">checks =</span> <span class="st">&quot;simple_tf&quot;</span>,</span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>   <span class="at">extra_checks =</span> <span class="fu">list</span>(<span class="at">simple_tf =</span> check_simple_tf))</span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; ── GP badpackage ───────────────────────────────────────────────────────────────</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; It is good practice to</span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt;   ✖ avoid &#39;T&#39; and &#39;F&#39;, use &#39;TRUE&#39; and &#39;FALSE&#39; instead.</span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt;   ✖ avoid &#39;T&#39; and &#39;F&#39;, as they are just variables which are set to the</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt;     logicals &#39;TRUE&#39; and &#39;FALSE&#39; by default, but are not reserved words</span></span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt;     and hence can be overwritten by the user.  Hence, one should always</span></span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt;     use &#39;TRUE&#39; and &#39;FALSE&#39; for the logicals.</span></span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
-<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
-<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
-<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
-<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="co">#&gt;     R/tf.R:NA:NA</span></span>
-<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="co">#&gt;     ... and 4 more lines</span></span>
-<span id="cb2-21"><a href="#cb2-21" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-22"><a href="#cb2-22" tabindex="-1"></a><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; ── Preparing goodpractice for badpackage ───────────────────────────────────────</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; ── It is good practice to ──────────────────────────────────────────────────────</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; ✖ avoid &#39;T&#39; and &#39;F&#39;, use &#39;TRUE&#39; and &#39;FALSE&#39; instead.</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
 </div>
 <div id="including-a-preparation-step" class="section level3">
 <h3>Including a preparation step</h3>
@@ -464,14 +449,17 @@ argument to <code>gp()</code>.</p>
 <span id="cb3-25"><a href="#cb3-25" tabindex="-1"></a><span class="fu">gp</span>(pkg_path, <span class="at">checks =</span> <span class="fu">c</span>(<span class="st">&quot;url&quot;</span>, <span class="st">&quot;bugreports&quot;</span>),</span>
 <span id="cb3-26"><a href="#cb3-26" tabindex="-1"></a>   <span class="at">extra_preps =</span> <span class="fu">list</span>(<span class="st">&quot;desc&quot;</span> <span class="ot">=</span> prep_desc),</span>
 <span id="cb3-27"><a href="#cb3-27" tabindex="-1"></a>   <span class="at">extra_checks =</span> <span class="fu">list</span>(<span class="st">&quot;url&quot;</span> <span class="ot">=</span> check_url, <span class="st">&quot;bugreports&quot;</span> <span class="ot">=</span> check_bugreports))</span>
-<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="co">#&gt; Preparing: desc</span></span>
-<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="co">#&gt; ── GP badpackage ───────────────────────────────────────────────────────────────</span></span>
-<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a><span class="co">#&gt; It is good practice to</span></span>
-<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co">#&gt;   ✖ have a URL field in DESCRIPTION</span></span>
-<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="co">#&gt;   ✖ add a BugReports field to DESCRIPTION</span></span>
-<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
+<span id="cb3-28"><a href="#cb3-28" tabindex="-1"></a><span class="co">#&gt; ── Preparing goodpractice for badpackage ───────────────────────────────────────</span></span>
+<span id="cb3-29"><a href="#cb3-29" tabindex="-1"></a><span class="co">#&gt; ℹ Preparing: desc</span></span>
+<span id="cb3-30"><a href="#cb3-30" tabindex="-1"></a><span class="co">#&gt; ✔ Preparing: desc [16ms]</span></span>
+<span id="cb3-31"><a href="#cb3-31" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-32"><a href="#cb3-32" tabindex="-1"></a><span class="co">#&gt; ── It is good practice to ──────────────────────────────────────────────────────</span></span>
+<span id="cb3-33"><a href="#cb3-33" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-34"><a href="#cb3-34" tabindex="-1"></a><span class="co">#&gt; ✖ have a URL field in DESCRIPTION</span></span>
+<span id="cb3-35"><a href="#cb3-35" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-36"><a href="#cb3-36" tabindex="-1"></a><span class="co">#&gt; ✖ add a BugReports field to DESCRIPTION</span></span>
+<span id="cb3-37"><a href="#cb3-37" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-38"><a href="#cb3-38" tabindex="-1"></a><span class="co">#&gt; ────────────────────────────────────────────────────────────────────────────────</span></span></code></pre></div>
 <p>More examples for using custom checks can be found in the <a href="https://unconf17.ropensci.org/">rOpenSci unconf 2017</a> project
 <a href="https://github.com/ropensci-archive/checkers"><strong>checkers</strong></a>
 for automated checking of best practices for research compendia.</p>

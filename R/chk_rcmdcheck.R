@@ -1,11 +1,7 @@
 
-## Last updated: 2016-03-16
-## To be peroidically updated, according to changes in check.R:
-## https://github.com/wch/r-source/commits/trunk/src/library/tools/R/check.R
-
 #' Wrapper on make_check, specific to R CMD check
 #'
-#' @param description A description of the check.
+#' @inheritParams make_check
 #' @param type Type of notification, one of "warnings", "notes" or "errors".
 #' @param pattern The text pattern identifying the check.
 #' @param tags Tags to be passed on to make_check.
@@ -15,6 +11,7 @@
 #' @keywords internal
 #' @include lists.R
 
+#' @noRd
 make_rcmd_check <- function(
   description, pattern, gp = NULL, type = c("warnings", "notes", "errors"),
   tags = NULL, preps = NULL, ...) {
@@ -39,8 +36,9 @@ make_rcmd_check <- function(
       )
     },
     check = function(state) {
-      if(inherits(state$rcmdcheck, "try-error")) return(NA)
-      ! any(grep(pattern, state$rcmdcheck[[type]]))
+      if (inherits(state$rcmdcheck, "try-error")) return(na_result())
+      matched <- any(grep(pattern, state$rcmdcheck[[type]]))
+      check_result(!matched)
     }
   )
 }

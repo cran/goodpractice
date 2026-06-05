@@ -1,6 +1,6 @@
 Package: goodpractice
 Title: Advice on R Package Building
-Version: 1.0.5
+Version: 1.1.0
 Authors@R: 
     c(
       person(given = "Mark",
@@ -45,7 +45,15 @@ Authors@R:
       person(given = "Fabian",
              family = "Scheipl",
              role = "ctb",
-             comment = c(GitHub = "fabian-s")))
+             comment = c(GitHub = "fabian-s")),
+      person(given = "Athanasia Mo",
+             family = "Mowinckel",
+             email = "a.m.mowinckel@psykologi.uio.no",
+             role = c("aut"),
+            comment = c(
+                GitHub = "drmowinckels", 
+                ORCID = "0000-0002-5756-0223")
+       ))
 Description: Give advice about good practices when building R packages.
     Advice includes functions and syntax to avoid, package structure, code
     complexity, code formatting, etc.
@@ -53,33 +61,45 @@ License: MIT + file LICENSE
 URL: https://docs.ropensci.org/goodpractice/,
         https://github.com/ropensci-review-tools/goodpractice
 BugReports: https://github.com/ropensci-review-tools/goodpractice/issues
-Imports: clisymbols, covr, crayon, cyclocomp (>= 1.1.0), desc,
-        jsonlite, lintr (>= 3.0.0), praise, rcmdcheck, rstudioapi,
-        tools, utils, whoami, withr, xml2, xmlparsedata (>= 1.0.1)
-Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
+Depends: R (>= 4.0.0)
+Imports: cli, covr, curl, cyclocomp (>= 1.1.0), desc, jsonlite, lintr
+        (>= 3.0.0), praise, rcmdcheck, roxygen2, rstudioapi, spelling,
+        tools, treesitter, treesitter.r, urlchecker, utils, whoami,
+        withr
+Suggests: future, future.apply, kableExtra, knitr, rmarkdown, testthat
+        (>= 3.0.0)
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 7.3.1
 Config/testthat/edition: 3
-Collate: 'api.R' 'customization.R' 'lists.R' 'chk_covr.R'
-        'chk_cyclocomp.R' 'chk_description.R' 'chk_lintr.R'
-        'chk_namespace.R' 'chk_rcmdcheck.R' 'chk_tnf.R' 'gp.R'
-        'my_linters.R' 'package.R' 'prep_covr.R' 'prep_cyclocomp.R'
-        'prep_description.R' 'prep_expressions.R' 'prep_lintr.R'
-        'prep_namespace.R' 'prep_rcmdcheck.R' 'print.R'
-        'rstudio_markers.R' 'utils.R'
+Config/ropensci/maintainer: staff
+Collate: 'api.R' 'customization.R' 'lists.R' 'chk_avoided_packages.R'
+        'treesitter.R' 'chk_code_structure.R' 'chk_covr.R'
+        'chk_cyclocomp.R' 'chk_description.R' 'chk_generic.R'
+        'chk_lintr.R' 'chk_namespace.R' 'chk_rcmdcheck.R' 'chk_rd.R'
+        'chk_revdep.R' 'chk_roxygen2.R' 'chk_spelling.R'
+        'chk_tidyverse.R' 'chk_urlchecker.R' 'chk_vignette.R' 'gp.R'
+        'package.R' 'prep_utils.R' 'prep_covr.R' 'prep_cyclocomp.R'
+        'prep_description.R' 'prep_lintr.R' 'prep_namespace.R'
+        'prep_rcmdcheck.R' 'prep_rd.R' 'prep_revdep.R'
+        'prep_roxygen2.R' 'prep_source.R' 'prep_spelling.R'
+        'prep_tidyverse.R' 'prep_urlchecker.R' 'prep_vignette.R'
+        'print.R' 'rstudio_markers.R' 'utils.R'
+Config/roxygen2/version: 8.0.0
 NeedsCompilation: no
-Packaged: 2024-06-03 09:04:17 UTC; smexus
-Author: Mark Padgham [aut, cre] (<https://orcid.org/0000-0003-2172-5265>),
-  Ascent Digital Services UK Limited [cph] (MangoTheCat),
-  Karina Marks [aut] (KarinaMarks),
-  Daniel de Bortoli [aut] (ddbortoli),
+Packaged: 2026-06-05 11:33:38 UTC; smexus
+Author: Mark Padgham [aut, cre] (ORCID:
+    <https://orcid.org/0000-0003-2172-5265>),
+  Ascent Digital Services UK Limited [cph] (GitHub: MangoTheCat),
+  Karina Marks [aut] (GitHub: KarinaMarks),
+  Daniel de Bortoli [aut] (GitHub: ddbortoli),
   Gabor Csardi [aut],
   Hannah Frick [aut],
-  Owen Jones [aut] (owenjonesuob),
+  Owen Jones [aut] (GitHub: owenjonesuob),
   Hannah Alexander [aut],
-  Ana Simmons [ctb] (anasimmons),
-  Fabian Scheipl [ctb] (fabian-s)
+  Ana Simmons [ctb] (GitHub: anasimmons),
+  Fabian Scheipl [ctb] (GitHub: fabian-s),
+  Athanasia Mo Mowinckel [aut] (GitHub: drmowinckels, ORCID:
+    <https://orcid.org/0000-0002-5756-0223>)
 Maintainer: Mark Padgham <mark@ropensci.org>
 Repository: CRAN
-Date/Publication: 2024-06-04 15:40:06 UTC
+Date/Publication: 2026-06-05 12:00:02 UTC

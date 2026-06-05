@@ -3,21 +3,50 @@
     Code
       print(x)
     Output
-      ── GP badpackage ───────────────────────────────────────────────────────────────
-      
-      It is good practice to
-      
-        ✖ avoid 'T' and 'F', as they are just variables which are set to the
-          logicals 'TRUE' and 'FALSE' by default, but are not reserved words
-          and hence can be overwritten by the user.  Hence, one should always
-          use 'TRUE' and 'FALSE' for the logicals.
-      
-          R/tf.R:NA:NA
-          R/tf.R:NA:NA
-          R/tf.R:NA:NA
-          R/tf.R:NA:NA
-          R/tf.R:NA:NA
-          ... and 4 more lines
-      
-      ──────────────────────────────────────────────────────────────────────────────── 
+      -- It is good practice to ------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+# print shows praise when all checks pass
+
+    Code
+      print(gp_res)
+
+# gp_positions truncates when exceeding limit
+
+    Code
+      withr::with_dir(tmp, gp_positions(pos, limit = 3))
+
+# gp_positions handles NA line_number
+
+    Code
+      withr::with_dir(tmp, gp_positions(pos, limit = 5))
+
+# gp_positions includes column when available
+
+    Code
+      withr::with_dir(tmp, gp_positions(pos, limit = 5))
+
+# print with groups filters output to that group
+
+    Code
+      print(x, groups = "description")
+    Output
+      -- It is good practice to ------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+# print shows info messages with praise
+
+    Code
+      print(gp_res)
+    Output
+      -- It is good practice to ------------------------------------------------------
+      --------------------------------------------------------------------------------
+
+# print calls rstudio_source_markers when hasFun is TRUE
+
+    Code
+      print(x)
+    Output
+      -- It is good practice to ------------------------------------------------------
+      --------------------------------------------------------------------------------
 

@@ -12,7 +12,7 @@ formatting, etc.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://ropensci-review-tools.github.io/goodpractice/}
+  \item \url{https://docs.ropensci.org/goodpractice/}
   \item \url{https://github.com/ropensci-review-tools/goodpractice}
   \item Report bugs at \url{https://github.com/ropensci-review-tools/goodpractice/issues}
 }
@@ -23,19 +23,21 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Karina Marks \email{karina.marks@ascent.io} (KarinaMarks)
-  \item Daniel de Bortoli (ddbortoli)
+  \item Mark Padgham \email{mark@ropensci.org} (\href{https://orcid.org/0000-0003-2172-5265}{ORCID})
+  \item Karina Marks \email{karina.marks@ascent.io} (GitHub: KarinaMarks)
+  \item Daniel de Bortoli (GitHub: ddbortoli)
   \item Gabor Csardi \email{csardi.gabor@gmail.com}
   \item Hannah Frick \email{hannah.frick@gmail.com}
-  \item Owen Jones \email{owenjonesuob@gmail.com} (owenjonesuob)
+  \item Owen Jones \email{owenjonesuob@gmail.com} (GitHub: owenjonesuob)
   \item Hannah Alexander \email{halexander@mango-solutions.com}
+  \item Athanasia Mo Mowinckel \email{a.m.mowinckel@psykologi.uio.no} (\href{https://orcid.org/0000-0002-5756-0223}{ORCID}) (GitHub: drmowinckels)
 }
 
 Other contributors:
 \itemize{
-  \item Ascent Digital Services UK Limited (MangoTheCat) [copyright holder]
-  \item Ana Simmons \email{ana.simmons@ascent.io} (anasimmons) [contributor]
-  \item Fabian Scheipl (fabian-s) [contributor]
+  \item Ascent Digital Services UK Limited (GitHub: MangoTheCat) [copyright holder]
+  \item Ana Simmons \email{ana.simmons@ascent.io} (GitHub: anasimmons) [contributor]
+  \item Fabian Scheipl (GitHub: fabian-s) [contributor]
 }
 
 }

@@ -18,3 +18,11 @@ lib <- function() {
   library(igraph)
   require(pkgconfig)
 }
+
+ip <- function() {
+  installed.packages()
+}
+
+ia <- function() {
+  system(x <- "echo hello")
+}

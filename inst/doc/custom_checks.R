@@ -20,7 +20,7 @@ check_simple_tf <- make_check(
 ## -----------------------------------------------------------------------------
 # get path to example package
 pkg_path <- system.file("bad1", package = "goodpractice")
-gp(pkg_path, checks = c("simple_tf", "truefalse_not_tf"),
+gp(pkg_path, checks = "simple_tf",
    extra_checks = list(simple_tf = check_simple_tf))
 
 ## -----------------------------------------------------------------------------

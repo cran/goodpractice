@@ -1,146 +1,111 @@
 #' Print goodpractice results
 #'
 #' @param x Object of class `goodPractice`, as returned by [gp()].
+#' @param groups Name of check groups for which to print results, as vector of
+#' one or more of [all_check_groups()].
 #' @param positions_limit How many positions to print at most.
 #' @param ... Unused, for compatibility with [base::print()] generic method.
 #'
 #' @importFrom rstudioapi hasFun
 #' @importFrom praise praise
-#' @importFrom clisymbols symbol
-#' @importFrom crayon red bold
+#' @importFrom stats setNames
 #'
 #' @export
 
-print.goodPractice <- function(x, positions_limit = 5, ...) {
+print.goodPractice <- function(x, groups = NULL, positions_limit = 5, ...) {
 
   failure <- FALSE
+  has_info <- FALSE
 
-  for (check in names(x$checks)) {
-    if (! check_passed(x$checks[[check]], na_as_passed = TRUE)) {
+  checks <- gp_print_groups(names(x$checks), groups = groups)
+
+  for (check in checks) {
+    type <- check_type(x$checks[[check]])
+    if (!check_passed(x$checks[[check]], na_as_passed = TRUE)) {
       if (!failure) {
         failure <- TRUE
         gp_header(x)
       }
-      gp_advice(x, check, positions_limit)
+      gp_advice(x, check, positions_limit, type = "error")
+    } else if (type == "info") {
+      if (!failure && !has_info) {
+        has_info <- TRUE
+        gp_header(x)
+      }
+      gp_advice(x, check, positions_limit, type = "info")
     }
   }
 
-  if (failure) {
-    gp_footer(x)
-    if (getOption("goodpractice.rstudio_source_markers", TRUE) &&
+  if (failure || has_info) {
+    cli::cat_rule()
+    if (failure &&
+        getOption("goodpractice.rstudio_source_markers", TRUE) &&
         hasFun("sourceMarkers")) {
       rstudio_source_markers(x)
     }
+  }
 
-  } else {
-    cat(
-      "\n", sep = "",
-      bold(red(clisymbols::symbol$heart)),
-      praise(paste0(
-        " ${Exclamation}! ${Adjective} package! ",
-        "Keep up the ${adjective} work!"
-      )),
-      "\n"
+  if (!failure) {
+    msg <- praise(
+      '${Exclamation}! ${Adjective} package! Keep up the ${adjective} work!'
     )
+    cli::cli_text("{cli::col_red(cli::symbol$heart)} {.strong {msg}}")
   }
 
   invisible(x)
 }
 
-#' @importFrom clisymbols symbol
-
-make_line <- function(x) {
-  paste(rep(clisymbols::symbol$line, x), collapse = "")
-}
-
-lines <- vapply(1:100, FUN.VALUE = "", make_line)
-
-header_line <- function(left = "", right = "",
-                        width = getOption("width")) {
-
-  ncl <- nchar(left)
-  ncr <- nchar(right)
-
-  if (ncl) left <- paste0(" ", left, " ")
-  if (ncr) right <- paste0(" ", right, " ")
-  ndashes <- width - ((ncl > 0) * 2  + (ncr > 0) * 2 + ncl + ncr)
-
-  if (ndashes < 4) {
-    right <- substr(right, 1, ncr - (4 - ndashes))
-    ncr <- nchar(right)
-
-  }
-
-  dashes <- if (ndashes <= length(lines)) {
-    lines[ndashes]
-  } else {
-    make_line(ndashes)
-  }
-
-  res <- paste0(
-    substr(dashes, 1, 2),
-    left,
-    substr(dashes, 3, ndashes - 4),
-    right,
-    substr(dashes, ndashes - 3, ndashes)
-  )[1]
-
-  substring(res, 1, width)
-}
-
 gp_header <- function(x) {
-  h <- header_line(left = paste("GP", x$package))
-  cat(crayon::yellow(h), "\n\n", sep = "")
-  cat(crayon::bold("It is good practice to"), "\n\n", sep = "")
+  cli::cat_rule("It is good practice to", col = "cyan")
+  cli::cli_text()
 }
 
-gp_footer <- function(x) {
-  f <- header_line()
-  cat(crayon::yellow(f), "\n")
-}
-
-#' @importFrom clisymbols symbol
-
-gp_advice <- function(state, fail, limit) {
-
+gp_advice <- function(state, fail, limit, type = "error") {
   MYCHECKS <- prepare_checks(CHECKS, state$extra_checks)
-
   chk <- MYCHECKS[[fail]]
   res <- state$checks[[fail]]
 
   str <- if (is.function(chk$gp)) chk$gp(state) else chk$gp
+  str <- cli::format_inline(gsub("\n\\s*", " ", str))
+  str <- gsub("[{]", "{{", gsub("[}]", "}}", str))
 
-  str <- gsub("\n\\s*", " ", str)
-  str <- paste(
-    strwrap(
-      paste0(crayon::red(clisymbols::symbol$cross), " ", str),
-      indent = 2,
-      exdent = 4
-    ),
-    collapse = "\n"
-  )
+  bullet <- switch(type, info = "i", warning = "!", "x")
+  cli::cli_bullets(setNames(str, bullet))
 
-  cat(str)
+  if ("positions" %in% names(res)) {
+    cli::cli_text()
+    withr::with_dir(state$path, gp_positions(res[["positions"]], limit))
+  }
 
-  if ("positions" %in% names(res)) gp_positions(res[["positions"]], limit)
-
-  cat("\n")
+  cli::cli_text()
 }
 
 gp_positions <- function(pos, limit) {
-
   num <- length(pos)
-  if (length(pos) > limit) pos <- pos[1:limit]
+  if (num > limit) pos <- pos[seq_len(limit)]
 
-  cat("\n\n")
-  lapply(pos, function(x) {
-    cat(sep = "", "    ", crayon::blue(x$filename), ":",
-        crayon::blue(as.character(x$line_number)), ":",
-        crayon::blue(as.character(x$column_number)), "\n")
-  })
+  id <- cli::cli_div(theme = list(div = list("margin-left" = 4)))
+
+  for (p in pos) {
+    loc <- if (is.na(p$line_number)) "" else paste0(":", p$line_number)
+    if (nzchar(loc) && !is.na(p$column_number)) {
+      loc <- paste0(loc, ":", p$column_number)
+    }
+    cli::cli_text("{.path {p$filename}{loc}}")
+  }
 
   if (num > limit) {
-    and <- paste0("    ... and ", num - limit, " more lines\n")
-    cat(crayon::blue(and))
+    cli::cli_text("{.emph ... and {num - limit} more line{?s}}")
   }
+
+  cli::cli_end(id)
+}
+
+gp_print_groups <- function (checks, groups = NULL) {
+    if (is.null (groups)) {
+        return (checks)
+    }
+    stopifnot (all (groups %in% all_check_groups ()))
+    group_checks <- unlist (lapply (groups, checks_by_group))
+    checks [which (checks %in% group_checks)]
 }

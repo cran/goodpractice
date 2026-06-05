@@ -1,0 +1,7 @@
+Package: badexportorder
+Title: Bad Export Order Package
+Version: 1.0.0
+Author: Test
+Maintainer: Test <test@test.com>
+Description: A package with internal functions before exported ones.
+License: MIT

@@ -8,8 +8,11 @@
 #' @export
 #' @examples 
 #' path <- system.file("bad1", package = "goodpractice")
-#' # run a subset of all checks available
-#' g <- gp(path, checks = all_checks()[3:16])
+#' # Run a subset of all checks available
+#' g <- gp(path, checks = all_checks()[9:16])
+#' checks(g)
+#' # Or run with named check groups
+#' g <- gp(path, checks = checks_by_group("description", "namespace"))
 #' checks(g)
 
 checks <- function(gp) {
@@ -21,22 +24,24 @@ checks <- function(gp) {
 #' @param gp \code{\link{gp}} output.
 #' @return Data frame, with columns:
 #' \item{check}{The name of the check.}
-#' \item{result}{Logical, whether it has failed or not.}
+#' \item{passed}{Logical, whether the check passed.}
 #'
 #' @family API
 #' @export
 #' @examples 
 #' path <- system.file("bad1", package = "goodpractice")
-#' # run a subset of all checks available
-#' g <- gp(path, checks = all_checks()[3:16])
+#' # Run a subset of all checks available
+#' g <- gp(path, checks = all_checks()[9:16])
+#' results(g)
+#' # Or run with named check groups
+#' g <- gp(path, checks = checks_by_group("description", "namespace"))
 #' results(g)
 
 results <- function(gp) {
   data.frame(
-    stringsAsFactors = FALSE,
     row.names = NULL,
     check = names(gp$checks),
-    result = vapply(gp$checks, check_passed, TRUE)
+    passed = vapply(gp$checks, check_passed, TRUE)
   )
 }
 
@@ -50,7 +55,10 @@ results <- function(gp) {
 #' @examples 
 #' path <- system.file("bad1", package = "goodpractice")
 #' # run a subset of all checks available
-#' g <- gp(path, checks = all_checks()[3:16])
+#' g <- gp(path, checks = all_checks()[9:16])
+#' failed_checks(g)
+#' # Or run with named check groups
+#' g <- gp(path, checks = checks_by_group("description", "namespace"))
 #' failed_checks(g)
 
 failed_checks <- function(gp) {
@@ -73,6 +81,10 @@ failed_checks <- function(gp) {
 #' @return A list of lists of positions. See details below.
 #'
 #' @export
+#' @examples
+#' path <- system.file("bad1", package = "goodpractice")
+#' g <- gp(path, checks = "description_url")
+#' failed_positions(g)
 
 failed_positions <- function(gp) {
   failed <- Filter(check_failed, gp$checks)
@@ -80,7 +92,7 @@ failed_positions <- function(gp) {
 }
 
 get_position <- function(chk) {
-  if (! "positions" %in% names(chk)) NULL else chk$positions
+  if ("positions" %in% names(chk)) chk$positions else NULL
 }
 
 #' Export failed checks to JSON
@@ -88,8 +100,15 @@ get_position <- function(chk) {
 #' @param gp \code{\link{gp}} output.
 #' @param file Output connection or file.
 #' @param pretty Whether to pretty-print the JSON.
+#' @return Invisibly returns the path to the output file.
 #'
 #' @export
+#' @examples
+#' path <- system.file("bad1", package = "goodpractice")
+#' g <- gp(path, checks = "description_url")
+#' tmp <- tempfile(fileext = ".json")
+#' export_json(g, tmp)
+#' unlink(tmp)
 #' @importFrom jsonlite toJSON
 #' @importFrom whoami username fullname
 
@@ -106,5 +125,5 @@ export_json <- function(gp, file, pretty = FALSE) {
   )
 
   cat(toJSON(obj, pretty = pretty), file = file)
-  invisible()
+  invisible(file)
 }

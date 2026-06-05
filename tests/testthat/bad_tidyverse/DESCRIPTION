@@ -1,0 +1,7 @@
+Package: badtidyverse
+Title: Bad Tidyverse Style Package
+Version: 1.0.0
+Author: Test
+Maintainer: Test <test@test.com>
+Description: A package with tidyverse style violations for testing.
+License: MIT

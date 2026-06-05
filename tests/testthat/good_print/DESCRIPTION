@@ -1,0 +1,7 @@
+Package: goodprint
+Title: Test Package for print Return Check
+Version: 1.0.0
+Author: Test
+Maintainer: Test <test@test.com>
+Description: Package with print methods that correctly return invisibly.
+License: GPL-2

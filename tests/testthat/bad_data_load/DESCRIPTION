@@ -1,0 +1,7 @@
+Package: baddataload
+Title: Test Fixture for Unloadable Data
+Version: 0.0.1
+Author: Test
+Maintainer: Test <test@test.com>
+Description: Fixture package with a corrupted data file.
+License: MIT
